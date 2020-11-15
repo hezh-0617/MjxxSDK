@@ -1,3 +1,5 @@
+//apply plugin: 'com.github.dcendents.android-maven'
+//group='com.github.mjxx'
 apply plugin: 'com.android.library'
 
 android {
