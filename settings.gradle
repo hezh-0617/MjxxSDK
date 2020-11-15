@@ -1,0 +1,4 @@
+include ':faceLibs'
+include ':demo'
+include ':speechLibs'
+rootProject.name = "Speech"
