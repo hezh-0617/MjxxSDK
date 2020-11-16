@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.webkit.JavascriptInterface;
+import android.webkit.URLUtil;
 import android.webkit.WebSettings;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -47,7 +48,8 @@ public final class SpeechActivity extends AppCompatActivity {
 
     private Map<String, String> webCallbackFun = new HashMap<>();
 
-    private String voidText;
+    //    private String voidText;
+    private Config config;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,21 +63,27 @@ public final class SpeechActivity extends AppCompatActivity {
         btnStart = findViewById(R.id.btnStart);
         btnStop = findViewById(R.id.btnStop);
 
+        config = (Config) getIntent().getSerializableExtra("config");
+        if (config == null) {
+            config = new Config();
+            config.setShowLog(false);
+            LogUtil.init(false, false);
+        }
 
-        btnStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                recognizer.start(asrSendParams);
-            }
-        });
 
-        btnStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                recognizer.stop();
-                ttsHelper.speak(TextUtils.isEmpty(voidText) ? "你还没告诉我你想查询什么，请说" : voidText);
-            }
-        });
+//        btnStart.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                recognizer.start(asrSendParams);
+//            }
+//        });
+//
+//        btnStop.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ttsHelper.speak(TextUtils.isEmpty(voidText) ? "你还没告诉我你想查询什么，请说" : voidText);
+//            }
+//        });
 
         if (initPermission()) {
             initWebView();
@@ -85,7 +93,7 @@ public final class SpeechActivity extends AppCompatActivity {
     }
 
     private void iniSpeechSDK() {
-        ttsHelper = new TTSHelper(SpeechActivity.this, "", new UiMessageListener() {
+        ttsHelper = new TTSHelper(SpeechActivity.this, config, new UiMessageListener() {
             @Override
             public void onSpeechFinish(String utteranceId) {
                 super.onSpeechFinish(utteranceId);
@@ -94,10 +102,12 @@ public final class SpeechActivity extends AppCompatActivity {
         });
 
 
-        asrSendParams.put("pid", 15373);
+        asrSendParams.put("pid", 15373);  //普通话
         asrSendParams.put("accept-audio-volume", false);
         asrSendParams.put("vad", "VAD_DNN");
-        //                params.put("url","");
+        if (URLUtil.isNetworkUrl(config.getServerUrl())) {
+            asrSendParams.put("url", config.getServerUrl());
+        }
         recognizer = new MyRecognizer(this, new IRecogListener() {
             @Override
             public void onAsrReady() {
@@ -135,7 +145,7 @@ public final class SpeechActivity extends AppCompatActivity {
                 res.put("voiceStr", stringBuilder.toString());
                 webView.doJSCallback(webCallbackFun.get(String.valueOf(JavaScriptInterface.API_INIT_VOICE_2_TEXT)), res);
 
-                voidText = stringBuilder.toString();
+//                voidText = stringBuilder.toString();
             }
 
             @Override
@@ -240,9 +250,9 @@ public final class SpeechActivity extends AppCompatActivity {
         @JavascriptInterface
         public void hxpApi(final int apiId, String parasJsonStr, final String callBack) {
 
-            LogUtil.d("jsApi", "js_api_id:" + apiId);
-            LogUtil.d("jsApi", "parasJasonStr:" + parasJsonStr);
-            LogUtil.d("jsApi", "callBack:" + callBack);
+//            LogUtil.d("jsApi", "js_api_id:" + apiId);
+//            LogUtil.d("jsApi", "parasJasonStr:" + parasJsonStr);
+//            LogUtil.d("jsApi", "callBack:" + callBack);
 
             switch (apiId) {
                 case API_TEXT_TO_VOICE:

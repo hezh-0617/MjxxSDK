@@ -1,10 +1,9 @@
 package com.baidu.tts;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -17,11 +16,10 @@ import com.baidu.tts.client.SpeechSynthesizerListener;
 import com.baidu.tts.client.TtsMode;
 import com.baidu.tts.control.InitConfig;
 import com.baidu.tts.control.MySyntherizer;
-import com.baidu.tts.listener.UiMessageListener;
-import com.baidu.tts.util.Auth;
 import com.baidu.tts.util.AutoCheck;
 import com.baidu.tts.util.IOfflineResourceConst;
 import com.baidu.tts.util.OfflineResource;
+import com.mjxx.sdk.Config;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -52,13 +50,15 @@ public class TTSHelper {
 
     private int speed = 8;  //语速
 
+    private Config config;
     private SpeechSynthesizerListener listener;
 
 
-    public TTSHelper(Context context, String sn, @NonNull SpeechSynthesizerListener listener) {
+    public TTSHelper(Context context, Config config, @NonNull SpeechSynthesizerListener listener) {
         this.context = context;
-        this.sn = sn;
+        this.config = config;
         this.listener = listener;
+        sn = config.getSn();
         initSpeechSynthesizer();
     }
 
@@ -77,7 +77,12 @@ public class TTSHelper {
             appId = metaData.getString("com.baidu.speech.APP_ID");
             appKey = metaData.getString("com.baidu.speech.API_KEY");
             secretKey = metaData.getString("com.baidu.speech.SECRET_KEY");
-//            }
+
+            if (TextUtils.isEmpty(appId) ||
+                    TextUtils.isEmpty(appKey) ||
+                    TextUtils.isEmpty(secretKey)) {
+                throw new NullPointerException("请配置meta-data");
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -191,7 +196,9 @@ public class TTSHelper {
 
         if (speed != this.speed && speed > 0 && speed < 16) {
             this.speed = speed;
-            synthesizer.release();
+            if (synthesizer != null) {
+                synthesizer.release();
+            }
 //            SpeechSynthesizerListener listener = new UiMessageListener();
             InitConfig config = getInitConfig(listener);
             synthesizer = new MySyntherizer(context, config);

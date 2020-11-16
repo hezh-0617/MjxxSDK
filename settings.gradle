@@ -1,3 +1,4 @@
+include ':speechLibsNative'
 include ':faceLibs'
 include ':demo'
 include ':speechLibs'

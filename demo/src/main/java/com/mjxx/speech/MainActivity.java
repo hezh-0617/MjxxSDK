@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.mjxx.sdk.Config;
 import com.mjxx.sdk.SpeechSDK;
 
 
@@ -18,7 +19,10 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btnGo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SpeechSDK.startSpeech(v.getContext());
+                Config config = new Config();
+                config.setShowLog(true);  //是否打印日志
+//                config.setServerUrl("");
+                SpeechSDK.startSpeech(v.getContext(), config);
             }
         });
     }
