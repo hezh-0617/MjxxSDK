@@ -3,7 +3,6 @@ package com.mjxx.speechlibsnative.retrofit;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -14,12 +13,8 @@ public class RetrofitClient {
     public RetrofitClient(String baseUrl) {
 
         try {
-            HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
-            httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BASIC);
-
 
             OkHttpClient client = new OkHttpClient().newBuilder()
-                    .addInterceptor(httpLoggingInterceptor)
                     .connectTimeout(30, TimeUnit.SECONDS)
                     .readTimeout(30, TimeUnit.SECONDS)
                     .writeTimeout(30, TimeUnit.SECONDS)
