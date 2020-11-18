@@ -73,19 +73,19 @@ public final class SpeechActivity extends AppCompatActivity {
         }
 
 
-        btnStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                recognizer.start(asrSendParams);
-            }
-        });
-
-        btnStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ttsHelper.speak("你还没告诉我你想查询什么，请说");
-            }
-        });
+//        btnStart.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                recognizer.start(asrSendParams);
+//            }
+//        });
+//
+//        btnStop.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ttsHelper.speak("你还没告诉我你想查询什么，请说");
+//            }
+//        });
 
         if (initPermission()) {
             initWebView();
