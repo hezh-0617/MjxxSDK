@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.mjxx.sdk.Config;
-import com.mjxx.sdk.SpeechSDK;
+import com.mjxx.speechlibsnative.mjxx.sdk.Config;
+import com.mjxx.speechlibsnative.mjxx.sdk.SpeechSDK;
+
+//import com.mjxx.sdk.Config;
+//import com.mjxx.sdk.SpeechSDK;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -21,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Config config = new Config();
                 config.setShowLog(true);  //是否打印日志
-//                config.setServerUrl("");
+                config.setAsrServerUrl("http://182.61.15.84:8090/v2");
+                config.setTtsServerUrl("http://182.61.15.84:8802");
                 SpeechSDK.startSpeech(v.getContext(), config);
             }
         });
