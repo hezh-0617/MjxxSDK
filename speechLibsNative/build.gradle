@@ -35,11 +35,5 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    api 'androidx.constraintlayout:constraintlayout:2.0.4'
     api 'com.google.code.gson:gson:2.8.6'
-
-    api 'com.squareup.retrofit2:retrofit:2.3.0'
-    api 'com.squareup.retrofit2:converter-gson:2.3.0'
-    api 'com.squareup.okhttp3:okhttp:3.8.0'
-
 }

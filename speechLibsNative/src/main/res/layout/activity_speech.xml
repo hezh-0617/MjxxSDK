@@ -1,72 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <com.mjxx.speechlibsnative.mjxx.webview.CustomerWebView
         android:id="@+id/webView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#fff"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff" />
 
     <!--    1.47-->
 
     <TextView
         android:id="@+id/tvLoading"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:background="#fff"
         android:gravity="center"
         android:text="Loading..."
-        android:textColor="#fff"
+        android:textColor="#424242"
         android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@id/webView"
-        app:layout_constraintStart_toStartOf="@id/webView" />
+        android:textStyle="bold" />
 
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="@style/progress_small"
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        app:layout_constraintEnd_toEndOf="@id/webView"
-        app:layout_constraintStart_toStartOf="@id/webView"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="match_parent"
+        android:layout_height="2dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:orientation="horizontal"
-        android:visibility="gone"
-        android:layout_height="wrap_content">
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/btnStart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="20dp"
             android:background="#03A9F4"
-            android:textSize="16sp"
+            android:padding="20dp"
+            android:text="开始录音"
             android:textColor="#fff"
-            android:text="开始录音"/>
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/btnStop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:background="#03A9F4"
             android:layout_marginStart="20dp"
-            android:textSize="16sp"
+            android:background="#03A9F4"
+            android:padding="20dp"
+            android:text="语音播报"
             android:textColor="#fff"
-            android:text="语音播报"/>
+            android:textSize="16sp" />
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

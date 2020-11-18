@@ -40,8 +40,6 @@ public final class SpeechActivity extends AppCompatActivity {
     private CustomerWebView webView;
     private ProgressBar progressBar;
     private TextView tvLoading;
-    private TextView btnStart;
-    private TextView btnStop;
 
     private TTSHelper ttsHelper;
     private MyRecognizer recognizer;
@@ -62,8 +60,6 @@ public final class SpeechActivity extends AppCompatActivity {
         webView = findViewById(R.id.webView);
         progressBar = findViewById(R.id.progressBar);
         tvLoading = findViewById(R.id.tvLoading);
-        btnStart = findViewById(R.id.btnStart);
-        btnStop = findViewById(R.id.btnStop);
 
         config = (Config) getIntent().getSerializableExtra("config");
         if (config == null) {
@@ -72,15 +68,14 @@ public final class SpeechActivity extends AppCompatActivity {
             LogUtil.init(false, false);
         }
 
-
-//        btnStart.setOnClickListener(new View.OnClickListener() {
+//        findViewById(R.id.btnStart).setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
 //                recognizer.start(asrSendParams);
 //            }
 //        });
 //
-//        btnStop.setOnClickListener(new View.OnClickListener() {
+//        findViewById(R.id.btnStop).setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
 //                ttsHelper.speak("你还没告诉我你想查询什么，请说");
