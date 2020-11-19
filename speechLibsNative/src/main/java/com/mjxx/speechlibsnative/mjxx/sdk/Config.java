@@ -6,8 +6,7 @@ public class Config implements Serializable {
     private boolean isShowLog;
     private String asrServerUrl;
     private String ttsServerUrl;
-
-    private String sn; //授权序列号，离线语音合成需要
+    private String webServerUrl;
 
     public boolean isShowLog() {
         return isShowLog;
@@ -33,11 +32,11 @@ public class Config implements Serializable {
         this.ttsServerUrl = ttsServerUrl;
     }
 
-    public String getSn() {
-        return sn;
+    public String getWebServerUrl() {
+        return webServerUrl;
     }
 
-    public void setSn(String sn) {
-        this.sn = sn;
+    public void setWebServerUrl(String webServerUrl) {
+        this.webServerUrl = webServerUrl;
     }
 }

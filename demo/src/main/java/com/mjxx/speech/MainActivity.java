@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
                 config.setShowLog(true);  //是否打印日志
                 config.setAsrServerUrl("http://182.61.15.84:8090/v2");
                 config.setTtsServerUrl("http://182.61.15.84:8802");
+                config.setWebServerUrl("http://47.106.235.8:8889/#/");
                 SpeechSDK.startSpeech(v.getContext(), config);
             }
         });

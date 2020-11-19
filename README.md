@@ -28,7 +28,9 @@ dependencies {
 ```bash
 Config config = new Config();
 config.setShowLog(true);  //是否打印日志
+//以下参数由服务方提供：
 config.setAsrServerUrl(""); // 语音识别服务器地址
 config.setTtsServerUrl("");  // 语音合成服务器地址
+config.setWebServerUrl("");  // 网页链接
 SpeechSDK.startSpeech(context,config);
 ```

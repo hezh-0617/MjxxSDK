@@ -63,9 +63,7 @@ public final class SpeechActivity extends AppCompatActivity {
 
         config = (Config) getIntent().getSerializableExtra("config");
         if (config == null) {
-            config = new Config();
-            config.setShowLog(false);
-            LogUtil.init(false, false);
+            throw new NullPointerException("Config 不能为空");
         }
 
 //        findViewById(R.id.btnStart).setOnClickListener(new View.OnClickListener() {
@@ -109,6 +107,8 @@ public final class SpeechActivity extends AppCompatActivity {
 
         if (URLUtil.isNetworkUrl(config.getAsrServerUrl())) {
             asrSendParams.put("url", config.getAsrServerUrl());
+        }else {
+            throw new IllegalArgumentException("asrServerUrl 非法");
         }
 
         recognizer = new MyRecognizer(this, new IRecogListener() {
@@ -200,7 +200,11 @@ public final class SpeechActivity extends AppCompatActivity {
 
     private void initWebView() {
 
-        String url = "http://47.106.235.8:8889/#/";
+        String url = config.getWebServerUrl();
+
+        if (!URLUtil.isNetworkUrl(url)) {
+            throw new IllegalArgumentException("WebServerUrl 非法");
+        }
 
         webView.getWebview().getSettings().setUserAgentString(WebSettings.getDefaultUserAgent(this) + ";MJXX_SPEECH");
         final JavaScriptInterface mapClazz = new JavaScriptInterface();

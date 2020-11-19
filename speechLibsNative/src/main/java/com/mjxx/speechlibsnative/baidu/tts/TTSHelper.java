@@ -1,6 +1,7 @@
 package com.mjxx.speechlibsnative.baidu.tts;
 
 import android.text.TextUtils;
+import android.webkit.URLUtil;
 
 import com.mjxx.speechlibsnative.mjxx.sdk.Config;
 import com.mjxx.speechlibsnative.mjxx.utils.DeviceUtil;
@@ -31,6 +32,11 @@ public class TTSHelper {
         }
 
         String ttsServerUrl = config.getTtsServerUrl();
+
+        if (!URLUtil.isNetworkUrl(ttsServerUrl)) {
+            throw new IllegalArgumentException("ttsServerUrl 非法");
+        }
+
         if (!ttsServerUrl.endsWith("/")) {
             ttsServerUrl += "/";
         }
