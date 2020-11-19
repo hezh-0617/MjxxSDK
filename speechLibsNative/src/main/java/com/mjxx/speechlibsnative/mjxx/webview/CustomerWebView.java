@@ -20,7 +20,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 
-import com.mjxx.speechlibsnative.mjxx.utils.JsonUtil;
 import com.mjxx.speechlibsnative.mjxx.utils.LogUtil;
 
 
@@ -402,19 +401,19 @@ public class CustomerWebView extends LinearLayout {
     /**
      * web回调
      */
-    public void doJSCallback(String callbackFun, Object obj) {
+    public void doJSCallback(String callbackFun, String callBackResult) {
 
         if (TextUtils.isEmpty(callbackFun)) {
             return;
         }
 //        callbackFun = "function(t){}";
 
-        final String result = JsonUtil.objectToJsonDisableHtmlEscaping(obj);
-        LogUtil.d("hxpApi", "callBackData:" + result);
+//        final String result = JsonUtil.objectToJsonDisableHtmlEscaping(obj);
+        LogUtil.d("hxpApi", "callBackData:" + callBackResult);
 
         final String js;
 
-        js = "(" + callbackFun + ")(\'" + result + "\')";
+        js = "(" + callbackFun + ")(\'" + callBackResult + "\')";
 //            js = "(" + callbackFun + ")(" + result + ")";
         LogUtil.d("hxpApi", "callBackData:js  = " + js);
 

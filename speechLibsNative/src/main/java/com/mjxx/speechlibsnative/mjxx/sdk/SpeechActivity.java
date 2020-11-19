@@ -144,9 +144,16 @@ public final class SpeechActivity extends AppCompatActivity {
                     stringBuilder.append(result);
                 }
                 LogUtil.d("MyRecognizer", "onAsrFinalResult=" + stringBuilder.toString());
-                Map<String, String> res = new HashMap<>();
-                res.put("voiceStr", stringBuilder.toString());
-                webView.doJSCallback(webCallbackFun.get(String.valueOf(JavaScriptInterface.API_INIT_VOICE_2_TEXT)), res);
+//                Map<String, String> res = new HashMap<>();
+//                res.put("voiceStr", stringBuilder.toString());
+                JSONObject jsonObject = new JSONObject();
+                try {
+                    jsonObject.put("voiceStr",stringBuilder.toString());
+                    webView.doJSCallback(webCallbackFun.get(String.valueOf(JavaScriptInterface.API_INIT_VOICE_2_TEXT)), jsonObject.toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+//                webView.doJSCallback(webCallbackFun.get(String.valueOf(JavaScriptInterface.API_INIT_VOICE_2_TEXT)), res);
             }
 
             @Override
