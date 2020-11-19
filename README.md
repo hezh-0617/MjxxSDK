@@ -28,7 +28,7 @@ dependencies {
 ```bash
 Config config = new Config();
 config.setShowLog(true);  //是否打印日志
-config.setAsrServerUrl("http://182.61.15.84:8090/v2"); // 语音识别服务器地址
-config.setTtsServerUrl("http://182.61.15.84:8802/");  // 语音合成服务器地址
-SpeechSDK.startSpeech(v.getContext(),config);
+config.setAsrServerUrl(""); // 语音识别服务器地址
+config.setTtsServerUrl("");  // 语音合成服务器地址
+SpeechSDK.startSpeech(context,config);
 ```
