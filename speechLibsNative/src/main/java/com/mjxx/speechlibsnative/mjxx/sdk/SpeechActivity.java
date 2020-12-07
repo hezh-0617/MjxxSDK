@@ -144,8 +144,6 @@ public final class SpeechActivity extends AppCompatActivity {
                     stringBuilder.append(result);
                 }
                 LogUtil.d("MyRecognizer", "onAsrFinalResult=" + stringBuilder.toString());
-//                Map<String, String> res = new HashMap<>();
-//                res.put("voiceStr", stringBuilder.toString());
                 JSONObject jsonObject = new JSONObject();
                 try {
                     jsonObject.put("voiceStr",stringBuilder.toString());
@@ -153,7 +151,6 @@ public final class SpeechActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-//                webView.doJSCallback(webCallbackFun.get(String.valueOf(JavaScriptInterface.API_INIT_VOICE_2_TEXT)), res);
             }
 
             @Override
@@ -262,9 +259,9 @@ public final class SpeechActivity extends AppCompatActivity {
         @JavascriptInterface
         public void hxpApi(final int apiId, String parasJsonStr, final String callBack) {
 
-//            LogUtil.d("jsApi", "js_api_id:" + apiId);
-//            LogUtil.d("jsApi", "parasJasonStr:" + parasJsonStr);
-//            LogUtil.d("jsApi", "callBack:" + callBack);
+            LogUtil.d("jsApi", "js_api_id:" + apiId);
+            LogUtil.d("jsApi", "parasJasonStr:" + parasJsonStr);
+            LogUtil.d("jsApi", "callBack:" + callBack);
 
             switch (apiId) {
                 case API_TEXT_TO_VOICE:
@@ -309,7 +306,12 @@ public final class SpeechActivity extends AppCompatActivity {
                     break;
 
                 case API_ON_BACK_PRESS:
-                    onBackPressed();
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            onBackPressed();
+                        }
+                    });
                     break;
             }
         }
