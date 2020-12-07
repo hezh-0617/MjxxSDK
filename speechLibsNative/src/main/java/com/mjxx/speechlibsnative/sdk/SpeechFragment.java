@@ -1,9 +1,13 @@
-package com.mjxx.speechlibsnative.mjxx.sdk;
+package com.mjxx.speechlibsnative.sdk;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.JavascriptInterface;
 import android.webkit.URLUtil;
 import android.webkit.WebSettings;
@@ -13,9 +17,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 
 
 import com.baidu.speech.asr.SpeechConstant;
@@ -25,9 +29,9 @@ import com.mjxx.speechlibsnative.baidu.asr.recog.RecogResult;
 import com.mjxx.speechlibsnative.baidu.asr.recog.listener.IRecogListener;
 import com.mjxx.speechlibsnative.baidu.tts.SpeakResultListener;
 import com.mjxx.speechlibsnative.baidu.tts.TTSHelper;
-import com.mjxx.speechlibsnative.mjxx.utils.LogUtil;
-import com.mjxx.speechlibsnative.mjxx.webview.CustomerWebView;
-import com.mjxx.speechlibsnative.mjxx.webview.WebViewCallback;
+import com.mjxx.speechlibsnative.utils.LogUtil;
+import com.mjxx.speechlibsnative.webview.CustomerWebView;
+import com.mjxx.speechlibsnative.webview.WebViewCallback;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,7 +40,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public final class SpeechActivity extends AppCompatActivity {
+public final class SpeechFragment extends Fragment {
     private CustomerWebView webView;
     private ProgressBar progressBar;
     private TextView tvLoading;
@@ -48,47 +52,46 @@ public final class SpeechActivity extends AppCompatActivity {
 
     private Map<String, String> webCallbackFun = new HashMap<>();
 
-    //    private String voidText;
     private Config config;
 
+    public static SpeechFragment newInstance(Config config) {
+        Bundle args = new Bundle();
+        args.putSerializable("config",config);
+
+        SpeechFragment fragment = new SpeechFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Nullable
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_speech, container, false);
+        webView = view.findViewById(R.id.webView);
+        progressBar = view.findViewById(R.id.progressBar);
+        tvLoading = view.findViewById(R.id.tvLoading);
 
-        setContentView(R.layout.activity_speech);
+        Bundle arguments = getArguments();
+        if (arguments == null) {
+            throw new NullPointerException("Config 不能为空");
+        }
 
-        webView = findViewById(R.id.webView);
-        progressBar = findViewById(R.id.progressBar);
-        tvLoading = findViewById(R.id.tvLoading);
 
-        config = (Config) getIntent().getSerializableExtra("config");
+        config = (Config) arguments.getSerializable("config");
         if (config == null) {
             throw new NullPointerException("Config 不能为空");
         }
 
-//        findViewById(R.id.btnStart).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                recognizer.start(asrSendParams);
-//            }
-//        });
-//
-//        findViewById(R.id.btnStop).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                ttsHelper.speak("你还没告诉我你想查询什么，请说");
-//            }
-//        });
-
-        if (initPermission()) {
+        if (initPermission(getActivity())) {
             initWebView();
             iniSpeechSDK();
         }
-
+        return view;
     }
 
+
     private void iniSpeechSDK() {
-        ttsHelper = new TTSHelper( config, new SpeakResultListener(){
+        ttsHelper = new TTSHelper(config, new SpeakResultListener() {
 
             @Override
             public void onFinish(String speakWhat) {
@@ -101,17 +104,17 @@ public final class SpeechActivity extends AppCompatActivity {
             }
         });
 
-        asrSendParams.put(SpeechConstant.PID, 1912);  //普通话
+        asrSendParams.put(SpeechConstant.PID, config.getAsrPid());
         asrSendParams.put(SpeechConstant.ACCEPT_AUDIO_VOLUME, false);
         asrSendParams.put(SpeechConstant.APP_KEY, "com.baidu.cloud");
 
         if (URLUtil.isNetworkUrl(config.getAsrServerUrl())) {
             asrSendParams.put("url", config.getAsrServerUrl());
-        }else {
+        } else {
             throw new IllegalArgumentException("asrServerUrl 非法");
         }
 
-        recognizer = new MyRecognizer(this, new IRecogListener() {
+        recognizer = new MyRecognizer(getContext(), new IRecogListener() {
             @Override
             public void onAsrReady() {
 
@@ -146,7 +149,7 @@ public final class SpeechActivity extends AppCompatActivity {
                 LogUtil.d("MyRecognizer", "onAsrFinalResult=" + stringBuilder.toString());
                 JSONObject jsonObject = new JSONObject();
                 try {
-                    jsonObject.put("voiceStr",stringBuilder.toString());
+                    jsonObject.put("voiceStr", stringBuilder.toString());
                     webView.doJSCallback(webCallbackFun.get(String.valueOf(JavaScriptInterface.API_INIT_VOICE_2_TEXT)), jsonObject.toString());
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -203,7 +206,9 @@ public final class SpeechActivity extends AppCompatActivity {
             throw new IllegalArgumentException("WebServerUrl 非法");
         }
 
-        webView.getWebview().getSettings().setUserAgentString(WebSettings.getDefaultUserAgent(this) + ";MJXX_SPEECH");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            webView.getWebview().getSettings().setUserAgentString(WebSettings.getDefaultUserAgent(getContext()) + ";MJXX_SPEECH");
+        }
         final JavaScriptInterface mapClazz = new JavaScriptInterface();
         webView.addJavascriptInterface(mapClazz, "jsBridge");
 
@@ -238,12 +243,13 @@ public final class SpeechActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onBackPressed() {
+    private void onBackPressed() {
         if (webView.canGoBack()) {
             webView.goBack();
-        } else {
-            super.onBackPressed();
+        }else {
+            if (onCloseCallListener != null) {
+                onCloseCallListener.onCloseCall();
+            }
         }
     }
 
@@ -276,7 +282,7 @@ public final class SpeechActivity extends AppCompatActivity {
                             } else {
                                 speed = 0;
                             }
-                            SpeechActivity.this.runOnUiThread(new Runnable() {
+                            webView.post(new Runnable() {
                                 @Override
                                 public void run() {
                                     if (ttsHelper != null) {
@@ -306,7 +312,7 @@ public final class SpeechActivity extends AppCompatActivity {
                     break;
 
                 case API_ON_BACK_PRESS:
-                    runOnUiThread(new Runnable() {
+                    webView.post(new Runnable() {
                         @Override
                         public void run() {
                             onBackPressed();
@@ -322,13 +328,8 @@ public final class SpeechActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
 
-    @Override
-    protected void onDestroy() {
+    public void onDestroy() {
         super.onDestroy();
 
         if (recognizer != null) {
@@ -351,14 +352,14 @@ public final class SpeechActivity extends AppCompatActivity {
         }
 
         if (!granted) {
-            Toast.makeText(this, "获取权限失败", Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), "获取权限失败", Toast.LENGTH_LONG).show();
             return;
         }
         initWebView();
         iniSpeechSDK();
     }
 
-    private boolean initPermission() {
+    private boolean initPermission(Activity activity) {
         String[] permissions = {Manifest.permission.RECORD_AUDIO,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -369,7 +370,7 @@ public final class SpeechActivity extends AppCompatActivity {
         ArrayList<String> toApplyList = new ArrayList<>();
 
         for (String perm : permissions) {
-            if (PackageManager.PERMISSION_GRANTED != ContextCompat.checkSelfPermission(this, perm)) {
+            if (PackageManager.PERMISSION_GRANTED != ContextCompat.checkSelfPermission(activity, perm)) {
                 toApplyList.add(perm);
                 //进入到这里代表没有权限.
 
@@ -377,11 +378,21 @@ public final class SpeechActivity extends AppCompatActivity {
         }
         String[] tmpList = new String[toApplyList.size()];
         if (!toApplyList.isEmpty()) {
-            ActivityCompat.requestPermissions(this, toApplyList.toArray(tmpList), 123);
+            ActivityCompat.requestPermissions(activity, toApplyList.toArray(tmpList), 123);
             return false;
         } else {
             return true;
         }
 
+    }
+
+    public interface OnCloseCallListener{
+        void onCloseCall();
+    }
+
+    private OnCloseCallListener onCloseCallListener;
+
+    public void setOnCloseCallListener(OnCloseCallListener onCloseCallListener) {
+        this.onCloseCallListener = onCloseCallListener;
     }
 }

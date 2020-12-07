@@ -3,9 +3,9 @@ package com.mjxx.speechlibsnative.baidu.tts;
 import android.text.TextUtils;
 import android.webkit.URLUtil;
 
-import com.mjxx.speechlibsnative.mjxx.sdk.Config;
-import com.mjxx.speechlibsnative.mjxx.utils.DeviceUtil;
-import com.mjxx.speechlibsnative.mjxx.utils.LogUtil;
+import com.mjxx.speechlibsnative.sdk.Config;
+import com.mjxx.speechlibsnative.utils.DeviceUtil;
+import com.mjxx.speechlibsnative.utils.LogUtil;
 
 import java.net.URLEncoder;
 

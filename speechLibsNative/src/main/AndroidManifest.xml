@@ -21,7 +21,8 @@
         android:requestLegacyExternalStorage="true"
         tools:targetApi="m">
         <activity
-            android:name=".mjxx.sdk.SpeechActivity"
+            android:exported="false"
+            android:name=".sdk.SpeechActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 

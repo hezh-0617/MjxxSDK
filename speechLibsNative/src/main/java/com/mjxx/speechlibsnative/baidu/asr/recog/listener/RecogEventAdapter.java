@@ -5,7 +5,7 @@ import android.util.Log;
 import com.baidu.speech.EventListener;
 import com.baidu.speech.asr.SpeechConstant;
 import com.mjxx.speechlibsnative.baidu.asr.recog.RecogResult;
-import com.mjxx.speechlibsnative.mjxx.utils.LogUtil;
+import com.mjxx.speechlibsnative.utils.LogUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;

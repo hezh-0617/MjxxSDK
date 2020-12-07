@@ -1,4 +1,4 @@
-package com.mjxx.speechlibsnative.mjxx.utils;
+package com.mjxx.speechlibsnative.utils;
 
 import android.annotation.SuppressLint;
 import android.os.Environment;

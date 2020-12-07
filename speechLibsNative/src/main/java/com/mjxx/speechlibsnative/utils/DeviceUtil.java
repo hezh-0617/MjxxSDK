@@ -1,4 +1,4 @@
-package com.mjxx.speechlibsnative.mjxx.utils;
+package com.mjxx.speechlibsnative.utils;
 
 import java.net.NetworkInterface;
 import java.util.Collections;

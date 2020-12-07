@@ -1,4 +1,4 @@
-package com.mjxx.speechlibsnative.mjxx.webview;
+package com.mjxx.speechlibsnative.webview;
 
 /**
  * Created by topTech on 2019/4/16.

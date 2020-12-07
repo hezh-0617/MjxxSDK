@@ -8,7 +8,7 @@ import com.baidu.speech.EventManagerFactory;
 import com.baidu.speech.asr.SpeechConstant;
 import com.mjxx.speechlibsnative.baidu.asr.recog.listener.IRecogListener;
 import com.mjxx.speechlibsnative.baidu.asr.recog.listener.RecogEventAdapter;
-import com.mjxx.speechlibsnative.mjxx.utils.LogUtil;
+import com.mjxx.speechlibsnative.utils.LogUtil;
 
 import org.json.JSONObject;
 

@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.mjxx.speechlibsnative.mjxx.sdk.Config;
-import com.mjxx.speechlibsnative.mjxx.sdk.SpeechSDK;
+import com.mjxx.speechlibsnative.sdk.Config;
+import com.mjxx.speechlibsnative.sdk.SpeechSDK;
 
 //import com.mjxx.sdk.Config;
 //import com.mjxx.sdk.SpeechSDK;

@@ -1,4 +1,4 @@
-package com.mjxx.speechlibsnative.mjxx.webview;
+package com.mjxx.speechlibsnative.webview;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -1,4 +1,4 @@
-package com.mjxx.speechlibsnative.mjxx.webview;
+package com.mjxx.speechlibsnative.webview;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -20,7 +20,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 
-import com.mjxx.speechlibsnative.mjxx.utils.LogUtil;
+import com.mjxx.speechlibsnative.utils.LogUtil;
 
 
 /**

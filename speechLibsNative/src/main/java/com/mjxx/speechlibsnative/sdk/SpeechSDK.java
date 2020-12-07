@@ -1,9 +1,9 @@
-package com.mjxx.speechlibsnative.mjxx.sdk;
+package com.mjxx.speechlibsnative.sdk;
 
 import android.content.Context;
 import android.content.Intent;
 
-import com.mjxx.speechlibsnative.mjxx.utils.LogUtil;
+import com.mjxx.speechlibsnative.utils.LogUtil;
 
 
 public class SpeechSDK {
@@ -14,6 +14,6 @@ public class SpeechSDK {
             LogUtil.init(false,config.isShowLog());
         }
 
-        context.startActivity(new Intent(context,SpeechActivity.class).putExtra("config",config));
+        context.startActivity(new Intent(context, SpeechActivity.class).putExtra("config",config));
     }
 }
