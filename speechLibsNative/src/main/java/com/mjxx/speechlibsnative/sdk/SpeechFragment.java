@@ -21,7 +21,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
-
 import com.baidu.speech.asr.SpeechConstant;
 import com.mjxx.speechlibsnative.R;
 import com.mjxx.speechlibsnative.baidu.asr.recog.MyRecognizer;
@@ -29,6 +28,7 @@ import com.mjxx.speechlibsnative.baidu.asr.recog.RecogResult;
 import com.mjxx.speechlibsnative.baidu.asr.recog.listener.IRecogListener;
 import com.mjxx.speechlibsnative.baidu.tts.SpeakResultListener;
 import com.mjxx.speechlibsnative.baidu.tts.TTSHelper;
+import com.mjxx.speechlibsnative.utils.DeviceUtil;
 import com.mjxx.speechlibsnative.utils.LogUtil;
 import com.mjxx.speechlibsnative.webview.CustomerWebView;
 import com.mjxx.speechlibsnative.webview.WebViewCallback;
@@ -56,7 +56,7 @@ public final class SpeechFragment extends Fragment {
 
     public static SpeechFragment newInstance(Config config) {
         Bundle args = new Bundle();
-        args.putSerializable("config",config);
+        args.putSerializable("config", config);
 
         SpeechFragment fragment = new SpeechFragment();
         fragment.setArguments(args);
@@ -122,7 +122,7 @@ public final class SpeechFragment extends Fragment {
 
             @Override
             public void onAsrBegin() {
-
+                LogUtil.d("MyRecognizer", "onAsrBegin: ");
             }
 
             @Override
@@ -132,16 +132,6 @@ public final class SpeechFragment extends Fragment {
 
             @Override
             public void onAsrPartialResult(String[] results, RecogResult recogResult) {
-
-            }
-
-            @Override
-            public void onAsrOnlineNluResult(String nluResult) {
-
-            }
-
-            @Override
-            public void onAsrFinalResult(String[] results, RecogResult recogResult) {
                 StringBuilder stringBuilder = new StringBuilder();
                 for (String result : results) {
                     stringBuilder.append(result);
@@ -154,6 +144,27 @@ public final class SpeechFragment extends Fragment {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+            }
+
+            @Override
+            public void onAsrOnlineNluResult(String nluResult) {
+
+            }
+
+            @Override
+            public void onAsrFinalResult(String[] results, RecogResult recogResult) {
+//                StringBuilder stringBuilder = new StringBuilder();
+//                for (String result : results) {
+//                    stringBuilder.append(result);
+//                }
+//                LogUtil.d("MyRecognizer", "onAsrFinalResult=" + stringBuilder.toString());
+//                JSONObject jsonObject = new JSONObject();
+//                try {
+//                    jsonObject.put("voiceStr", stringBuilder.toString());
+//                    webView.doJSCallback(webCallbackFun.get(String.valueOf(JavaScriptInterface.API_INIT_VOICE_2_TEXT)), jsonObject.toString());
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
             }
 
             @Override
@@ -174,10 +185,12 @@ public final class SpeechFragment extends Fragment {
             @Override
             public void onAsrVolume(int volumePercent, int volume) {
 
+                LogUtil.d("MyRecognizer", "onAsrVolume: ");
             }
 
             @Override
             public void onAsrAudio(byte[] data, int offset, int length) {
+                LogUtil.d("MyRecognizer", "onAsrAudio: ");
 
             }
 
@@ -246,7 +259,7 @@ public final class SpeechFragment extends Fragment {
     private void onBackPressed() {
         if (webView.canGoBack()) {
             webView.goBack();
-        }else {
+        } else {
             if (onCloseCallListener != null) {
                 onCloseCallListener.onCloseCall();
             }
@@ -254,6 +267,7 @@ public final class SpeechFragment extends Fragment {
     }
 
     final class JavaScriptInterface {
+        final static int API_GET_DEVICE_INFO = 1;
 
         final static int API_INIT_VOICE_2_TEXT = 5;
         final static int API_PAUSE_VOICE_TRANS = 10; //
@@ -270,6 +284,24 @@ public final class SpeechFragment extends Fragment {
             LogUtil.d("jsApi", "callBack:" + callBack);
 
             switch (apiId) {
+                case API_GET_DEVICE_INFO:
+                    Activity activity = getActivity();
+                    if (activity == null) {
+                        break;
+                    }
+                    try {
+                        JSONObject result = new JSONObject();
+                        result.put("imei", DeviceUtil.getIMEI(activity));
+                        result.put("network", DeviceUtil.isNetworkAvailable(activity) ? 1 : 0);
+                        result.put("ramSize", DeviceUtil.getRamSize(activity));
+                        result.put("availableRamSize", DeviceUtil.getAvailableRamSize(activity));
+                        result.put("cpuUsed", DeviceUtil.getAppCpuUseRate());
+                        webView.doJSCallback(callBack, result.toString());
+                    } catch (Exception e) {
+                        webView.doJSCallback(callBack, "{}");
+                    }
+                    break;
+
                 case API_TEXT_TO_VOICE:
                     webCallbackFun.put(String.valueOf(apiId), callBack);
                     try {
@@ -386,7 +418,7 @@ public final class SpeechFragment extends Fragment {
 
     }
 
-    public interface OnCloseCallListener{
+    public interface OnCloseCallListener {
         void onCloseCall();
     }
 

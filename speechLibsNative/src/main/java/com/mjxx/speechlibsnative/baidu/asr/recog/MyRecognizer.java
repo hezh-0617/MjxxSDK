@@ -84,7 +84,8 @@ public class MyRecognizer {
      */
     public void start(Map<String, Object> params) {
         if (!isInited) {
-            throw new RuntimeException("release() was called");
+//            throw new RuntimeException("release() was called");
+            return;
         }
         // SDK集成步骤 拼接识别参数
         String json = new JSONObject(params).toString();
