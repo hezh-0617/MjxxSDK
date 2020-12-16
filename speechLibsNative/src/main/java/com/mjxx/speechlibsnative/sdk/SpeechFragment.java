@@ -45,6 +45,12 @@ public final class SpeechFragment extends Fragment {
     private ProgressBar progressBar;
     private TextView tvLoading;
 
+    private static final String ASR_RECEIVE_MODE_PARTIAL = "Partial";
+    private static final String ASR_RECEIVE_MODE_FINAL = "Final";
+
+    private String asrReceiveMode = ASR_RECEIVE_MODE_PARTIAL;
+
+
     private TTSHelper ttsHelper;
     private MyRecognizer recognizer;
 
@@ -132,17 +138,8 @@ public final class SpeechFragment extends Fragment {
 
             @Override
             public void onAsrPartialResult(String[] results, RecogResult recogResult) {
-                StringBuilder stringBuilder = new StringBuilder();
-                for (String result : results) {
-                    stringBuilder.append(result);
-                }
-                LogUtil.d("MyRecognizer", "onAsrFinalResult=" + stringBuilder.toString());
-                JSONObject jsonObject = new JSONObject();
-                try {
-                    jsonObject.put("voiceStr", stringBuilder.toString());
-                    webView.doJSCallback(webCallbackFun.get(String.valueOf(JavaScriptInterface.API_INIT_VOICE_2_TEXT)), jsonObject.toString());
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                if (ASR_RECEIVE_MODE_PARTIAL.equals(asrReceiveMode)) {
+                    onAsrResult(results);
                 }
             }
 
@@ -153,18 +150,9 @@ public final class SpeechFragment extends Fragment {
 
             @Override
             public void onAsrFinalResult(String[] results, RecogResult recogResult) {
-//                StringBuilder stringBuilder = new StringBuilder();
-//                for (String result : results) {
-//                    stringBuilder.append(result);
-//                }
-//                LogUtil.d("MyRecognizer", "onAsrFinalResult=" + stringBuilder.toString());
-//                JSONObject jsonObject = new JSONObject();
-//                try {
-//                    jsonObject.put("voiceStr", stringBuilder.toString());
-//                    webView.doJSCallback(webCallbackFun.get(String.valueOf(JavaScriptInterface.API_INIT_VOICE_2_TEXT)), jsonObject.toString());
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
+                if (ASR_RECEIVE_MODE_FINAL.equals(asrReceiveMode)) {
+                    onAsrResult(results);
+                }
             }
 
             @Override
@@ -209,6 +197,21 @@ public final class SpeechFragment extends Fragment {
 
             }
         });
+    }
+
+    private void onAsrResult(String[] results) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String result : results) {
+            stringBuilder.append(result);
+        }
+        LogUtil.d("MyRecognizer", "onAsrFinalResult=" + stringBuilder.toString());
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("voiceStr", stringBuilder.toString());
+            webView.doJSCallback(webCallbackFun.get(String.valueOf(JavaScriptInterface.API_INIT_VOICE_2_TEXT)), jsonObject.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     private void initWebView() {
@@ -331,6 +334,16 @@ public final class SpeechFragment extends Fragment {
 
                 case API_INIT_VOICE_2_TEXT:
                     webCallbackFun.put(String.valueOf(apiId), callBack);
+
+                    try {
+                        JSONObject jsonObject = new JSONObject(parasJsonStr);
+                        if (jsonObject.has("receiveMode")) {
+                            asrReceiveMode = jsonObject.getString("receiveMode");
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
                     recognizer.start(asrSendParams);
 
                     break;
