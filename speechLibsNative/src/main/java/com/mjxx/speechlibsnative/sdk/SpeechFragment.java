@@ -29,6 +29,7 @@ import com.mjxx.speechlibsnative.baidu.asr.recog.listener.IRecogListener;
 import com.mjxx.speechlibsnative.baidu.tts.SpeakResultListener;
 import com.mjxx.speechlibsnative.baidu.tts.TTSHelper;
 import com.mjxx.speechlibsnative.utils.DeviceUtil;
+import com.mjxx.speechlibsnative.utils.FileUtil;
 import com.mjxx.speechlibsnative.utils.LogUtil;
 import com.mjxx.speechlibsnative.webview.CustomerWebView;
 import com.mjxx.speechlibsnative.webview.WebViewCallback;
@@ -48,7 +49,7 @@ public final class SpeechFragment extends Fragment {
     private static final String ASR_RECEIVE_MODE_PARTIAL = "Partial";
     private static final String ASR_RECEIVE_MODE_FINAL = "Final";
 
-    private String asrReceiveMode = ASR_RECEIVE_MODE_PARTIAL;
+    private String asrReceiveMode = ASR_RECEIVE_MODE_FINAL;
 
 
     private TTSHelper ttsHelper;
@@ -113,6 +114,9 @@ public final class SpeechFragment extends Fragment {
         asrSendParams.put(SpeechConstant.PID, config.getAsrPid());
         asrSendParams.put(SpeechConstant.ACCEPT_AUDIO_VOLUME, false);
         asrSendParams.put(SpeechConstant.APP_KEY, "com.baidu.cloud");
+
+        asrSendParams.put(SpeechConstant.ACCEPT_AUDIO_DATA,true);
+        asrSendParams.put(SpeechConstant.OUT_FILE, FileUtil.getAsrCachePath());
 
         if (URLUtil.isNetworkUrl(config.getAsrServerUrl())) {
             asrSendParams.put("url", config.getAsrServerUrl());
