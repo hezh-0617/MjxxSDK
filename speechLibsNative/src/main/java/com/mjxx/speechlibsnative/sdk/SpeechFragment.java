@@ -117,6 +117,7 @@ public final class SpeechFragment extends Fragment {
 
         asrSendParams.put(SpeechConstant.ACCEPT_AUDIO_DATA,true);
         asrSendParams.put(SpeechConstant.OUT_FILE, FileUtil.getAsrCachePath());
+        asrSendParams.put(SpeechConstant.LOG_LEVEL,6);
 
         if (URLUtil.isNetworkUrl(config.getAsrServerUrl())) {
             asrSendParams.put("url", config.getAsrServerUrl());
@@ -176,7 +177,6 @@ public final class SpeechFragment extends Fragment {
 
             @Override
             public void onAsrVolume(int volumePercent, int volume) {
-
                 LogUtil.d("MyRecognizer", "onAsrVolume: ");
             }
 

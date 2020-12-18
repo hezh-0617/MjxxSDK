@@ -1,7 +1,5 @@
 package com.mjxx.speechlibsnative.baidu.asr.recog.listener;
 
-import android.util.Log;
-
 import com.baidu.speech.EventListener;
 import com.baidu.speech.asr.SpeechConstant;
 import com.mjxx.speechlibsnative.baidu.asr.recog.RecogResult;
@@ -24,14 +22,15 @@ public class RecogEventAdapter implements EventListener {
         this.listener = listener;
     }
 
-    // 基于DEMO集成3.1 开始回调事件
     @Override
     public void onEvent(String name, String params, byte[] data, int offset, int length) {
         String currentJson = params;
         String logMessage = "name:" + name + "; params:" + params;
 
+        LogUtil.i(TAG,logMessage);
+
         // logcat 中 搜索RecogEventAdapter，即可以看见下面一行的日志
-        Log.i(TAG, logMessage);
+//        Log.i(TAG, logMessage);
 //        if (false) { // 可以调试，不需要后续逻辑
 //            return;
 //        }

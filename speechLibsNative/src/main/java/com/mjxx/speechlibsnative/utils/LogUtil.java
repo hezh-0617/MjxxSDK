@@ -17,16 +17,16 @@ import java.util.Date;
 
 public class LogUtil {
 
-    private static   boolean isWrite = false;  // TODO: 2017/9/27 暂定不写日志
+    private static boolean isWrite = false;  // TODO: 2017/9/27 暂定不写日志
     private static boolean isOutPrint = true;
-//    private static boolean isOutPrint = true;
 
     /**
      * Log初始化
+     *
      * @param isOut logcat 输出
      * @param write log文件输出  log优先
      */
-    public static void init(boolean write ,boolean isOut) {
+    public static void init(boolean write, boolean isOut) {
         isWrite = write;
         isOutPrint = isOut;
     }
@@ -111,10 +111,10 @@ public class LogUtil {
      * data); }
      */
     private static void writeTraceFile(String tag, String label, String msg) {
-        String data = "File[" + _FILE_() + "]Line[" + _LINE_() + "]FUN[" + _FUNC_() + "]Time[" + _TIME_() + "]," + label
+        String data = "File[" + _FILE_()  + "]Time[" + _TIME_() + "]," + label
                 + " msg: " + msg;
         String path = getSDPath();
-        String dir_path = path + "/" + "localmedia";
+        String dir_path = path + "/" + "BaiduAsrLog";
         if (checkTraceDir(dir_path)) {
             String traceFilePath = dir_path + "/" + tag + ".log";
             if (checkTraceFile(traceFilePath)) {
@@ -142,9 +142,8 @@ public class LogUtil {
     /**
      * 获取sd卡路径
      *
-     * @return
      * @return String
-     * @exception throws
+     * @throws throws
      */
     private static String getSDPath() {
         File sdDir = null;
@@ -211,6 +210,7 @@ public class LogUtil {
 
     /**
      * 打印错误信息
+     *
      * @param e
      */
     public static void printException(Exception e) {

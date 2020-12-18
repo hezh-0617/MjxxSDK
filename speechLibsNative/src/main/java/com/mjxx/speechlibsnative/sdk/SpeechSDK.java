@@ -11,7 +11,7 @@ public class SpeechSDK {
     public static void startSpeech(Context context,Config config){
 
         if (config != null) {
-            LogUtil.init(false,config.isShowLog());
+            LogUtil.init(true,config.isShowLog());
         }
 
         context.startActivity(new Intent(context, SpeechActivity.class).putExtra("config",config));
