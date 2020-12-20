@@ -115,10 +115,22 @@ public final class SpeechFragment extends Fragment {
         asrSendParams.put(SpeechConstant.ACCEPT_AUDIO_VOLUME, false);
         asrSendParams.put(SpeechConstant.APP_KEY, "com.baidu.cloud");
 
-        asrSendParams.put(SpeechConstant.ACCEPT_AUDIO_DATA,true);
-        asrSendParams.put(SpeechConstant.OUT_FILE, FileUtil.getAsrCachePath());
-        asrSendParams.put(SpeechConstant.LOG_LEVEL,6);
-        asrSendParams.put(SpeechConstant.VAD_ENDPOINT_TIMEOUT,0);
+        asrSendParams.put(SpeechConstant.ACCEPT_AUDIO_DATA, true);
+        if (config.isAsrSaveRecord()) {
+            asrSendParams.put(SpeechConstant.OUT_FILE, FileUtil.getAsrCachePath());
+        }
+        if (config.isWriteLog()) {
+            asrSendParams.put(SpeechConstant.LOG_LEVEL, 6);
+        } else if (config.isShowLog()) {
+            asrSendParams.put(SpeechConstant.LOG_LEVEL, 5);
+        } else {
+            asrSendParams.put(SpeechConstant.LOG_LEVEL, 0);
+        }
+        if (config.isAsrLongRecordEnable()) {
+            asrSendParams.put(SpeechConstant.VAD_ENDPOINT_TIMEOUT, 0);
+        } else {
+            asrSendParams.remove(SpeechConstant.VAD_ENDPOINT_TIMEOUT);
+        }
 
         if (URLUtil.isNetworkUrl(config.getAsrServerUrl())) {
             asrSendParams.put("url", config.getAsrServerUrl());

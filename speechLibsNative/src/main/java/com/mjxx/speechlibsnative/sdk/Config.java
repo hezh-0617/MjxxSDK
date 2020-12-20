@@ -6,8 +6,12 @@ public class Config implements Serializable {
     private boolean isShowLog;
     private String asrServerUrl;
     private int asrPid = 888;
+    private boolean asrLongRecordEnable = true;
+    private boolean asrSaveRecord;
     private String ttsServerUrl;
     private String webServerUrl;
+
+    private boolean isWriteLog;
 
     public boolean isShowLog() {
         return isShowLog;
@@ -47,5 +51,29 @@ public class Config implements Serializable {
 
     public void setAsrPid(int asrPid) {
         this.asrPid = asrPid;
+    }
+
+    public boolean isWriteLog() {
+        return isWriteLog;
+    }
+
+    public void setWriteLog(boolean writeLog) {
+        isWriteLog = writeLog;
+    }
+
+    public boolean isAsrLongRecordEnable() {
+        return asrLongRecordEnable;
+    }
+
+    public void setAsrLongRecordEnable(boolean asrLongRecordEnable) {
+        this.asrLongRecordEnable = asrLongRecordEnable;
+    }
+
+    public boolean isAsrSaveRecord() {
+        return asrSaveRecord;
+    }
+
+    public void setAsrSaveRecord(boolean asrSaveRecord) {
+        this.asrSaveRecord = asrSaveRecord;
     }
 }

@@ -38,9 +38,8 @@ public class LogUtil {
         }
         if (isWrite) {
             writeTraceFile(tag, "err", msg);
-        } else {
-            Trace(tag, "err", msg);
         }
+        Trace(tag, "err", msg);
     }
 
     public static void v(String tag, String msg) {
@@ -49,9 +48,8 @@ public class LogUtil {
         }
         if (isWrite) {
             writeTraceFile(tag, "verbose", msg);
-        } else {
-            Trace(tag, "verbose", msg);
         }
+        Trace(tag, "verbose", msg);
     }
 
     public static void d(String tag, String msg) {
@@ -60,9 +58,8 @@ public class LogUtil {
         }
         if (isWrite) {
             writeTraceFile(tag, "debug", msg);
-        } else {
-            Trace(tag, "debug", msg);
         }
+        Trace(tag, "debug", msg);
     }
 
     public static void i(String tag, String msg) {
@@ -71,9 +68,8 @@ public class LogUtil {
         }
         if (isWrite) {
             writeTraceFile(tag, "info", msg);
-        } else {
-            Trace(tag, "info", msg);
         }
+        Trace(tag, "info", msg);
     }
 
     public static void w(String tag, String msg) {
@@ -82,9 +78,8 @@ public class LogUtil {
         }
         if (isWrite) {
             writeTraceFile(tag, "warm", msg);
-        } else {
-            Trace(tag, "warm", msg);
         }
+        Trace(tag, "warm", msg);
     }
 
     private static void Trace(String tag, String label, String msg) {
@@ -114,7 +109,7 @@ public class LogUtil {
         String data = "File[" + _FILE_()  + "]Time[" + _TIME_() + "]," + label
                 + " msg: " + msg;
         String path = getSDPath();
-        String dir_path = path + "/" + "BaiduAsrLog";
+        String dir_path = path + "/" + "SpeechSdkLogs";
         if (checkTraceDir(dir_path)) {
             String traceFilePath = dir_path + "/" + tag + ".log";
             if (checkTraceFile(traceFilePath)) {

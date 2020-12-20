@@ -27,9 +27,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Config config = new Config();
                 config.setShowLog(true);  //是否打印日志
+                config.setWriteLog(true); //是否保存日志文件，true则输出日志到 手机储存/SpeechSdkLogs/
+
                 //以下参数由服务方提供：
                 config.setAsrServerUrl(etAsrServerUrl.getText().toString()); // 语音识别服务器地址
                 config.setAsrPid(Integer.parseInt(etAsrPid.getText().toString()));  //选填，默认888
+                config.setAsrLongRecordEnable(true);  //asr收否支持长时间录音
+                config.setAsrSaveRecord(true);  //是否保存asr录音文件，true则保存到 手机储存/MUSIC/baidu_asr/
+
                 config.setTtsServerUrl(etTtsServerUrl.getText().toString());  // 语音合成服务器地址
                 config.setWebServerUrl(etWebServerUrl.getText().toString()); //web host
                 SpeechSDK.startSpeech(v.getContext(), config);
