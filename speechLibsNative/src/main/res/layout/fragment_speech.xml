@@ -22,11 +22,36 @@
         android:textSize="20sp"
         android:textStyle="bold" />
 
+    <RelativeLayout
+        android:id="@+id/rlNv"
+        android:layout_width="match_parent"
+        android:background="#fff"
+        android:layout_height="55dp"
+        >
+
+        <TextView
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="20dp"
+            android:text="返回"
+            android:gravity="center"
+            android:textColor="#333"
+            android:textSize="18sp"
+            android:drawableLeft="@drawable/ic_baseline_arrow_back_30" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="#999"/>
+    </RelativeLayout>
+
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="@style/progress_small"
         android:layout_width="match_parent"
+        android:layout_below="@id/rlNv"
         android:layout_height="2dp" />
 
 

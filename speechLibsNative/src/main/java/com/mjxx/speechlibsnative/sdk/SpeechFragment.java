@@ -5,13 +5,16 @@ import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.JavascriptInterface;
 import android.webkit.URLUtil;
 import android.webkit.WebSettings;
+import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +48,7 @@ public final class SpeechFragment extends Fragment {
     private CustomerWebView webView;
     private ProgressBar progressBar;
     private TextView tvLoading;
+    private RelativeLayout rlNv;
 
     private static final String ASR_RECEIVE_MODE_PARTIAL = "Partial";
     private static final String ASR_RECEIVE_MODE_FINAL = "Final";
@@ -77,6 +81,7 @@ public final class SpeechFragment extends Fragment {
         webView = view.findViewById(R.id.webView);
         progressBar = view.findViewById(R.id.progressBar);
         tvLoading = view.findViewById(R.id.tvLoading);
+        rlNv = view.findViewById(R.id.rlNv);
 
         Bundle arguments = getArguments();
         if (arguments == null) {
@@ -93,6 +98,15 @@ public final class SpeechFragment extends Fragment {
             initWebView();
             iniSpeechSDK();
         }
+
+        view.findViewById(R.id.btnBack).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onCloseCallListener != null) {
+                    onCloseCallListener.onCloseCall();
+                }
+            }
+        });
         return view;
     }
 
@@ -231,6 +245,8 @@ public final class SpeechFragment extends Fragment {
         }
     }
 
+    private boolean loadFail = false;
+
     private void initWebView() {
 
         String url = config.getWebServerUrl();
@@ -245,9 +261,11 @@ public final class SpeechFragment extends Fragment {
         final JavaScriptInterface mapClazz = new JavaScriptInterface();
         webView.addJavascriptInterface(mapClazz, "jsBridge");
 
+
         webView.setCurWebUrl(url).startCallback(new WebViewCallback() {
             @Override
             public void onStart() {
+                loadFail = false;
             }
 
             @Override
@@ -257,19 +275,20 @@ public final class SpeechFragment extends Fragment {
 
             @Override
             public void onError(int errorCode, String description, String failingUrl) {
+                loadFail = true;
                 tvLoading.setText("内容加载失败");
+                webView.setVisibility(View.GONE);
+                rlNv.setVisibility(View.VISIBLE);
             }
 
             @Override
             public void onPageFinished() {
                 progressBar.setVisibility(View.GONE);
-                tvLoading.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        tvLoading.setVisibility(View.GONE);
-                    }
-                }, 2000);
-
+                if (!loadFail) {
+                    rlNv.setVisibility(View.GONE);
+                    webView.setVisibility(View.VISIBLE);
+                    tvLoading.setVisibility(View.GONE);
+                }
             }
         });
 

@@ -402,41 +402,21 @@ public class CustomerWebView extends LinearLayout {
      * web回调
      */
     public void doJSCallback(String callbackFun, String callBackResult) {
-
         if (TextUtils.isEmpty(callbackFun)) {
             return;
         }
-//        callbackFun = "function(t){}";
-
-//        final String result = JsonUtil.objectToJsonDisableHtmlEscaping(obj);
         LogUtil.d("hxpApi", "callBackData:" + callBackResult);
-
         final String js;
-
         js = "(" + callbackFun + ")(\'" + callBackResult + "\')";
-//            js = "(" + callbackFun + ")(" + result + ")";
         LogUtil.d("hxpApi", "callBackData:js  = " + js);
-
         try {
-//            new Handler(Looper.getMainLooper()).post(new Runnable() {
-//                @Override
-//                public void run() {
-////                    webview.loadUrl("javascript:" + js);
-//                    evaluateJavascript(js, null);
-//                }
-//            });
-
             post(new Runnable() {
                 @Override
                 public void run() {
                     LogUtil.d("hxpApi", "evaluateJavascript:js  = " + js);
                     evaluateJavascript(js, null);
-//                    webview.loadUrl("javascript:" + js);
                 }
             });
-
-//            evaluateJavascript(js, null);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
