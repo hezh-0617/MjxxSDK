@@ -10,6 +10,7 @@ public class Config implements Serializable {
     private boolean asrSaveRecord;
     private String ttsServerUrl;
     private String webServerUrl;
+    private String remoteServerHost;
 
     private boolean isWriteLog;
 
@@ -75,5 +76,13 @@ public class Config implements Serializable {
 
     public void setAsrSaveRecord(boolean asrSaveRecord) {
         this.asrSaveRecord = asrSaveRecord;
+    }
+
+    public String getRemoteServerHost() {
+        return remoteServerHost;
+    }
+
+    public void setRemoteServerHost(String remoteServerHost) {
+        this.remoteServerHost = remoteServerHost;
     }
 }

@@ -314,6 +314,7 @@ public final class SpeechFragment extends Fragment {
 
         final static int API_TEXT_TO_VOICE = 11; //
         final static int API_ON_BACK_PRESS = 13;
+        final static int API_ON_GET_SERVER_HOST = 14;
 
         @JavascriptInterface
         public void hxpApi(final int apiId, String parasJsonStr, final String callBack) {
@@ -399,6 +400,16 @@ public final class SpeechFragment extends Fragment {
                             onBackPressed();
                         }
                     });
+                    break;
+
+                case API_ON_GET_SERVER_HOST:
+                    try {
+                        JSONObject result = new JSONObject();
+                        result.put("serverHost", config.getRemoteServerHost());
+                        webView.doJSCallback(callBack, result.toString());
+                    } catch (Exception e) {
+                        webView.doJSCallback(callBack, "err");
+                    }
                     break;
             }
         }

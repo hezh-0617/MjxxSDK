@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         final EditText etTtsServerUrl= findViewById(R.id.etTtsServerUrl);
         final EditText etWebServerUrl= findViewById(R.id.etWebServerUrl);
         final EditText etAsrPid= findViewById(R.id.etAsrPid);
+        final EditText etRemoteServerHost= findViewById(R.id.etRemoteServerHost);
 
         findViewById(R.id.btnOpen).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
                 config.setTtsServerUrl(etTtsServerUrl.getText().toString());  // 语音合成服务器地址
                 config.setWebServerUrl(etWebServerUrl.getText().toString()); //web host
+                config.setRemoteServerHost(etRemoteServerHost.getText().toString()); //如需代理，请配置我放业务服务器Host
                 SpeechSDK.startSpeech(v.getContext(), config);
             }
         });
