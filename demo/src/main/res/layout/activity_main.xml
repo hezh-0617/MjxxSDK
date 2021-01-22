@@ -20,12 +20,13 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
             android:text="AsrServerUrl" />
-
+<!--        http://182.61.15.84:8090/v2-->
+<!--内        http://10.40.21.86:8802/v2-->
         <EditText
             android:id="@+id/etAsrServerUrl"
             android:layout_width="0dp"
             android:layout_weight="3"
-            android:text="http://10.40.21.86:8802/v2"
+            android:text="http://182.61.15.84:8090/v2"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
@@ -44,13 +45,14 @@
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:text="TtsServerUrl" />
-
+<!--        http://182.61.15.84:8802-->
+<!--内        http://10.40.21.86:8802/-->
         <EditText
             android:id="@+id/etTtsServerUrl"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
-            android:text="http://10.40.21.86:8802/"
+            android:text="http://182.61.15.84:8802/"
             app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
 
@@ -68,12 +70,15 @@
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:text="WebServerUrl" />
+<!--        http://47.106.235.8:8889/#/-->
+
+<!--内        http://10.40.21.86:8090-->
 
         <EditText
             android:id="@+id/etWebServerUrl"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="http://10.40.21.86:8090"
+            android:text="http://47.106.235.8:8889/#/"
             android:layout_weight="3"
             app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>

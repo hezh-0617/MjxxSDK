@@ -85,4 +85,19 @@ public class Config implements Serializable {
     public void setRemoteServerHost(String remoteServerHost) {
         this.remoteServerHost = remoteServerHost;
     }
+
+    @Override
+    public String toString() {
+        return "Config{" +
+                "isShowLog=" + isShowLog +
+                ", asrServerUrl='" + asrServerUrl + '\'' +
+                ", asrPid=" + asrPid +
+                ", asrLongRecordEnable=" + asrLongRecordEnable +
+                ", asrSaveRecord=" + asrSaveRecord +
+                ", ttsServerUrl='" + ttsServerUrl + '\'' +
+                ", webServerUrl='" + webServerUrl + '\'' +
+                ", remoteServerHost='" + remoteServerHost + '\'' +
+                ", isWriteLog=" + isWriteLog +
+                '}';
+    }
 }

@@ -5,14 +5,12 @@ import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.JavascriptInterface;
 import android.webkit.URLUtil;
 import android.webkit.WebSettings;
-import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -97,6 +95,7 @@ public final class SpeechFragment extends Fragment {
         if (initPermission(getActivity())) {
             initWebView();
             iniSpeechSDK();
+            LogUtil.writeTraceFile("SpeechSDK", "init", config.toString());
         }
 
         view.findViewById(R.id.btnBack).setOnClickListener(new View.OnClickListener() {
@@ -380,9 +379,9 @@ public final class SpeechFragment extends Fragment {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
-                    recognizer.start(asrSendParams);
-
+                    if (recognizer != null) {
+                        recognizer.start(asrSendParams);
+                    }
                     break;
 
                 case API_PAUSE_VOICE_TRANS:
@@ -423,9 +422,10 @@ public final class SpeechFragment extends Fragment {
 
     public void onDestroy() {
         super.onDestroy();
-
+        webView.onDestroy();
         if (recognizer != null) {
             recognizer.release();
+            recognizer = null;
         }
         if (ttsHelper != null) {
             ttsHelper.stopAll();
@@ -449,6 +449,7 @@ public final class SpeechFragment extends Fragment {
         }
         initWebView();
         iniSpeechSDK();
+        LogUtil.writeTraceFile("SpeechSDK", "init", config.toString());
     }
 
     private boolean initPermission(Activity activity) {

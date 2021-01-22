@@ -105,7 +105,7 @@ public class LogUtil {
      * msg; if(isOutPrint) { Log.e(TAG,"[" + tag + "],"+ data); } //Log.e(tag,
      * data); }
      */
-    private static void writeTraceFile(String tag, String label, String msg) {
+    public static void writeTraceFile(String tag, String label, String msg) {
         String data = "File[" + _FILE_()  + "]Time[" + _TIME_() + "]," + label
                 + " msg: " + msg;
         String path = getSDPath();
