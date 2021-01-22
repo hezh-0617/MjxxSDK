@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.baidu.speech.asr.SpeechConstant;
+import com.mjxx.speechlibsnative.BuildConfig;
 import com.mjxx.speechlibsnative.R;
 import com.mjxx.speechlibsnative.baidu.asr.recog.MyRecognizer;
 import com.mjxx.speechlibsnative.baidu.asr.recog.RecogResult;
@@ -314,6 +316,7 @@ public final class SpeechFragment extends Fragment {
         final static int API_TEXT_TO_VOICE = 11; //
         final static int API_ON_BACK_PRESS = 13;
         final static int API_ON_GET_SERVER_HOST = 14;
+        final static int API_GET_SDK_VERSION = 15;
 
         @JavascriptInterface
         public void hxpApi(final int apiId, String parasJsonStr, final String callBack) {
@@ -409,6 +412,16 @@ public final class SpeechFragment extends Fragment {
                     } catch (Exception e) {
                         webView.doJSCallback(callBack, "err");
                     }
+                    break;
+                case API_GET_SDK_VERSION:
+                    try {
+                        JSONObject jsonObject = new JSONObject();
+                        jsonObject.put("sdkVersion", BuildConfig.VERSION_NAME);
+                        webView.doJSCallback(callBack, jsonObject.toString());
+                    } catch (JSONException e) {
+                        webView.doJSCallback(callBack, "err");
+                    }
+
                     break;
             }
         }
