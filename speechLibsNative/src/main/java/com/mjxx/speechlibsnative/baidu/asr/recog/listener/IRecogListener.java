@@ -9,6 +9,8 @@ import com.mjxx.speechlibsnative.baidu.asr.recog.RecogResult;
 
 public interface IRecogListener {
 
+    void onLogMessage(String logMessage);
+
     /**
      * CALLBACK_EVENT_ASR_READY
      * ASR_START 输入事件调用后，引擎准备完毕

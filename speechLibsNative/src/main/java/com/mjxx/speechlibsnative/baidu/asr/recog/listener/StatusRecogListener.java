@@ -31,6 +31,11 @@ public class StatusRecogListener implements IRecogListener, IStatus {
     protected int status = STATUS_NONE;
 
     @Override
+    public void onLogMessage(String logMessage) {
+
+    }
+
+    @Override
     public void onAsrReady() {
         status = STATUS_READY;
     }

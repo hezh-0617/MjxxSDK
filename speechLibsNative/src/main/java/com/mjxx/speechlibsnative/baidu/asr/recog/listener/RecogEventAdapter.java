@@ -28,6 +28,7 @@ public class RecogEventAdapter implements EventListener {
         String logMessage = "name:" + name + "; params:" + params;
 
         LogUtil.i(TAG,logMessage);
+        listener.onLogMessage(logMessage);
 
         // logcat 中 搜索RecogEventAdapter，即可以看见下面一行的日志
 //        Log.i(TAG, logMessage);

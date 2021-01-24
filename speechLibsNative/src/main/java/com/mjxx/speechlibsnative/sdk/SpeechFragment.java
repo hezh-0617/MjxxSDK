@@ -43,6 +43,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public final class SpeechFragment extends Fragment {
     private CustomerWebView webView;
@@ -58,12 +60,15 @@ public final class SpeechFragment extends Fragment {
 
     private TTSHelper ttsHelper;
     private MyRecognizer recognizer;
+    private IRecogListener recogListener;
 
     private HashMap<String, Object> asrSendParams = new HashMap<>();
 
     private Map<String, String> webCallbackFun = new HashMap<>();
 
     private Config config;
+
+    private static boolean canLogInWeb = true;
 
     public static SpeechFragment newInstance(Config config) {
         Bundle args = new Bundle();
@@ -122,7 +127,7 @@ public final class SpeechFragment extends Fragment {
 
             @Override
             public void onErr(String msg) {
-
+                webView.doJSCallback(webCallbackFun.get(String.valueOf(JavaScriptInterface.API_TEXT_TO_VOICE)), "error");
             }
         });
 
@@ -153,20 +158,27 @@ public final class SpeechFragment extends Fragment {
             throw new IllegalArgumentException("asrServerUrl 非法");
         }
 
-        recognizer = new MyRecognizer(getContext(), new IRecogListener() {
+        recogListener = new IRecogListener() {
+            @Override
+            public void onLogMessage(String logMessage) {
+            }
+
             @Override
             public void onAsrReady() {
-
+                LogUtil.d("MyRecognizer", "onAsrReady: ");
+                setWebLog("onAsrReady");
             }
 
             @Override
             public void onAsrBegin() {
                 LogUtil.d("MyRecognizer", "onAsrBegin: ");
+                setWebLog("onAsrBegin");
             }
 
             @Override
             public void onAsrEnd() {
-
+                LogUtil.d("MyRecognizer", "onAsrEnd: ");
+                setWebLog("onAsrEnd");
             }
 
             @Override
@@ -178,6 +190,8 @@ public final class SpeechFragment extends Fragment {
 
             @Override
             public void onAsrOnlineNluResult(String nluResult) {
+                LogUtil.d("MyRecognizer", "onAsrOnlineNluResult: ");
+                setWebLog("onAsrOnlineNluResult");
 
             }
 
@@ -190,45 +204,72 @@ public final class SpeechFragment extends Fragment {
 
             @Override
             public void onAsrFinish(RecogResult recogResult) {
-
+                LogUtil.d("MyRecognizer", "onAsrFinish: ");
+                setWebLog("onAsrFinish");
             }
 
             @Override
             public void onAsrFinishError(int errorCode, int subErrorCode, String descMessage, RecogResult recogResult) {
-
+                String msg = "onAsrFinishError: " + errorCode + ",subErrorCode:" + subErrorCode + ",descMessage:" + descMessage;
+                JSONObject jsonObject = new JSONObject();
+                try {
+                    jsonObject.put("errorCode", 1);
+                    jsonObject.put("voiceStr", "");
+                    webView.doJSCallback(webCallbackFun.get(String.valueOf(JavaScriptInterface.API_INIT_VOICE_2_TEXT)), jsonObject.toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                LogUtil.d("MyRecognizer", msg);
+                setWebLog(msg);
             }
 
             @Override
             public void onAsrLongFinish() {
-
+                LogUtil.d("MyRecognizer", "onAsrLongFinish: ");
+                setWebLog("onAsrLongFinish");
             }
 
             @Override
             public void onAsrVolume(int volumePercent, int volume) {
                 LogUtil.d("MyRecognizer", "onAsrVolume: ");
+                setWebLog("onAsrVolume:" + volume);
             }
 
             @Override
             public void onAsrAudio(byte[] data, int offset, int length) {
                 LogUtil.d("MyRecognizer", "onAsrAudio: ");
-
+                if (canLogInWeb) {
+                    setWebLog("正在录音：" + (data == null ? 0 : data.length));
+                    canLogInWeb = false;
+                    new Timer().schedule(new TimerTask() { // 1秒不重复显示
+                        public void run() {
+                            canLogInWeb = true;
+                        }
+                    }, 1000);
+                }
             }
 
             @Override
             public void onAsrExit() {
-
+                LogUtil.d("MyRecognizer", "onAsrExit: ");
+                setWebLog("onAsrExit");
             }
 
             @Override
             public void onOfflineLoaded() {
-
+                LogUtil.d("MyRecognizer", "onOfflineLoaded: ");
             }
 
             @Override
             public void onOfflineUnLoaded() {
-
+                LogUtil.d("MyRecognizer", "onOfflineUnLoaded: ");
             }
-        });
+        };
+        recognizer = new MyRecognizer(getContext(), recogListener);
+    }
+
+    private void setWebLog(String logMsg) {
+        webView.evaluateJavascript("window.appInfo['_0']['setLog'](\'" + logMsg + "<br/>\')", null);
     }
 
     private void onAsrResult(String[] results) {
@@ -237,8 +278,10 @@ public final class SpeechFragment extends Fragment {
             stringBuilder.append(result);
         }
         LogUtil.d("MyRecognizer", "onAsrFinalResult=" + stringBuilder.toString());
+        setWebLog("onAsrFinalResult=" + stringBuilder.toString());
         JSONObject jsonObject = new JSONObject();
         try {
+            jsonObject.put("errorCode", 0);
             jsonObject.put("voiceStr", stringBuilder.toString());
             webView.doJSCallback(webCallbackFun.get(String.valueOf(JavaScriptInterface.API_INIT_VOICE_2_TEXT)), jsonObject.toString());
         } catch (JSONException e) {
@@ -382,9 +425,10 @@ public final class SpeechFragment extends Fragment {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    if (recognizer != null) {
-                        recognizer.start(asrSendParams);
+                    if (recognizer == null) {
+                        recognizer = new MyRecognizer(getContext(), recogListener);
                     }
+                    recognizer.start(asrSendParams);
                     break;
 
                 case API_PAUSE_VOICE_TRANS:

@@ -22,6 +22,11 @@ public class ChainRecogListener implements IRecogListener {
         listeners.add(listener);
     }
 
+    @Override
+    public void onLogMessage(String logMessage) {
+
+    }
+
     /**
      * ASR_START 输入事件调用后，引擎准备完毕
      */
