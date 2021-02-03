@@ -2,6 +2,7 @@ package com.mjxx.speechlibsnative.sdk;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -47,6 +48,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public final class SpeechFragment extends Fragment {
+
+    private static final String TAG = SpeechFragment.class.getSimpleName();
+
     private CustomerWebView webView;
     private ProgressBar progressBar;
     private TextView tvLoading;
@@ -88,11 +92,11 @@ public final class SpeechFragment extends Fragment {
         tvLoading = view.findViewById(R.id.tvLoading);
         rlNv = view.findViewById(R.id.rlNv);
 
+        Log.i(TAG, "onCreateView");
         Bundle arguments = getArguments();
         if (arguments == null) {
             throw new NullPointerException("Config 不能为空");
         }
-
 
         config = (Config) arguments.getSerializable("config");
         if (config == null) {
@@ -100,9 +104,12 @@ public final class SpeechFragment extends Fragment {
         }
 
         if (initPermission(getActivity())) {
+            Log.i(TAG, "has Permission,init sdk!");
             initWebView();
             iniSpeechSDK();
             LogUtil.writeTraceFile("SpeechSDK", "init", config.toString());
+        } else {
+            Log.i(TAG, "do not get Permission,init sdk!");
         }
 
         view.findViewById(R.id.btnBack).setOnClickListener(new View.OnClickListener() {
@@ -116,6 +123,41 @@ public final class SpeechFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        Log.i(TAG,"onActivityCreated");
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.i(TAG,"onStart");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.i(TAG,"onPause");
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        Log.i(TAG,"onAttach");
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Log.i(TAG,"onActivityCreated");
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Log.i(TAG,"onActivityCreated");
+    }
 
     private void iniSpeechSDK() {
         ttsHelper = new TTSHelper(config, new SpeakResultListener() {
@@ -476,9 +518,10 @@ public final class SpeechFragment extends Fragment {
         }
     }
 
-
+    @Override
     public void onDestroy() {
         super.onDestroy();
+        Log.i(TAG,"onDestroy");
         webView.onDestroy();
         if (recognizer != null) {
             recognizer.release();
@@ -506,6 +549,7 @@ public final class SpeechFragment extends Fragment {
         }
         initWebView();
         iniSpeechSDK();
+        Log.i(TAG,"onRequestPermissionsResult PERMISSION_GRANTED");
         LogUtil.writeTraceFile("SpeechSDK", "init", config.toString());
     }
 

@@ -84,6 +84,7 @@ public class MyRecognizer {
      */
     public void start(Map<String, Object> params) {
         if (!isInited) {
+            LogUtil.i(TAG + ".Debug", "release() was called");
 //            throw new RuntimeException("release() was called");
             return;
         }
