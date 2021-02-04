@@ -83,6 +83,12 @@ public final class SpeechFragment extends Fragment {
         return fragment;
     }
 
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        Log.i(TAG, "onAttach");
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -109,7 +115,7 @@ public final class SpeechFragment extends Fragment {
             iniSpeechSDK();
             LogUtil.writeTraceFile("SpeechSDK", "init", config.toString());
         } else {
-            Log.i(TAG, "do not get Permission,init sdk!");
+            Log.i(TAG, "do not get Permission");
         }
 
         view.findViewById(R.id.btnBack).setOnClickListener(new View.OnClickListener() {
@@ -126,37 +132,31 @@ public final class SpeechFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Log.i(TAG,"onActivityCreated");
+        Log.i(TAG, "onActivityCreated");
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        Log.i(TAG,"onStart");
+        Log.i(TAG, "onStart");
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        Log.i(TAG,"onPause");
-    }
-
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        Log.i(TAG,"onAttach");
+        Log.i(TAG, "onPause");
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        Log.i(TAG,"onActivityCreated");
+        Log.i(TAG, "onDestroyView");
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        Log.i(TAG,"onActivityCreated");
+        Log.i(TAG, "onDetach");
     }
 
     private void iniSpeechSDK() {
@@ -474,14 +474,17 @@ public final class SpeechFragment extends Fragment {
                     break;
 
                 case API_PAUSE_VOICE_TRANS:
+                    //Log.i(TAG,"API_PAUSE_VOICE_TRANS");
                     recognizer.stop();
                     break;
 
                 case API_RELEASE_VOICE_TRANS:
+                    Log.i(TAG,"API_RELEASE_VOICE_TRANS");
                     recognizer.release();
                     break;
 
                 case API_ON_BACK_PRESS:
+                    Log.i(TAG,"API_ON_BACK_PRESS");
                     webView.post(new Runnable() {
                         @Override
                         public void run() {
@@ -521,14 +524,16 @@ public final class SpeechFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.i(TAG,"onDestroy");
+        Log.i(TAG, "onDestroy");
         webView.onDestroy();
         if (recognizer != null) {
             recognizer.release();
             recognizer = null;
+            Log.i(TAG, "onDestroy recognizer.release()");
         }
         if (ttsHelper != null) {
             ttsHelper.stopAll();
+            Log.i(TAG, "onDestroy ttsHelper.stopAll()");
         }
     }
 
@@ -549,7 +554,7 @@ public final class SpeechFragment extends Fragment {
         }
         initWebView();
         iniSpeechSDK();
-        Log.i(TAG,"onRequestPermissionsResult PERMISSION_GRANTED");
+        Log.i(TAG, "onRequestPermissionsResult PERMISSION_GRANTED");
         LogUtil.writeTraceFile("SpeechSDK", "init", config.toString());
     }
 
@@ -572,7 +577,8 @@ public final class SpeechFragment extends Fragment {
         }
         String[] tmpList = new String[toApplyList.size()];
         if (!toApplyList.isEmpty()) {
-            ActivityCompat.requestPermissions(activity, toApplyList.toArray(tmpList), 123);
+//            ActivityCompat.requestPermissions(activity, toApplyList.toArray(tmpList), 123);
+            this.requestPermissions(toApplyList.toArray(tmpList), 123);
             return false;
         } else {
             return true;
