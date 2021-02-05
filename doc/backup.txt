@@ -1,0 +1,6 @@
+release {
+            keyAlias 'sg'
+            keyPassword 'caigeweiwu'
+            storeFile file('./keystore.jks')
+            storePassword 'caigeweiwu'
+        }

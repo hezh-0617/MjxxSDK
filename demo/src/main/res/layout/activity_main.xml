@@ -4,145 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:id="@+id/layout_asr_sever"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:text="AsrServerUrl" />
-<!--        http://182.61.15.84:8090/v2-->
-<!--内        http://10.40.21.86:8802/v2-->
-        <EditText
-            android:id="@+id/etAsrServerUrl"
-            android:layout_width="0dp"
-            android:layout_weight="3"
-            android:text="http://182.61.15.84:8090/v2"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layout_tts_server"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/layout_asr_sever">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="1"
-            android:text="TtsServerUrl" />
-<!--        http://182.61.15.84:8802-->
-<!--内        http://10.40.21.86:8802/-->
-        <EditText
-            android:id="@+id/etTtsServerUrl"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:text="http://182.61.15.84:8802/"
-            app:layout_constraintTop_toTopOf="parent" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layout_web"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/layout_tts_server">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="1"
-            android:text="WebServerUrl" />
-<!--        http://47.106.235.8:8889/#/-->
-
-<!--内        http://10.40.21.86:8090-->
-
-        <EditText
-            android:id="@+id/etWebServerUrl"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="http://47.106.235.8:8889/#/"
-            android:layout_weight="3"
-            app:layout_constraintTop_toTopOf="parent" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layout_pid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/layout_web">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="1"
-            android:text="AsrPid" />
-
-        <EditText
-            android:id="@+id/etAsrPid"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:text="888"
-            android:layout_weight="3"
-            app:layout_constraintTop_toTopOf="parent" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/layout_pid">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="1"
-            android:text="RemoteServer" />
-
-        <EditText
-            android:id="@+id/etRemoteServerHost"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:text=""
-            android:layout_weight="3"
-            app:layout_constraintTop_toTopOf="parent" />
-    </LinearLayout>
-
-
-    <Button
-        android:id="@+id/btnOpen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
-        android:padding="15dp"
-        android:text="打开语音助手"
-        android:textColor="#fff"
+    <ImageView
+        android:id="@+id/iv_background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_main_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:gravity="center"
+        android:text="嗨，我是首都机场，\n您的语音助手。"
+        android:textColor="#000"
+        android:textSize="30sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="我懂得可多了，号称百事通，快来问我吧！"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+    <com.mjxx.speech.widget.CircleView
+        android:id="@+id/cv_start"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点击\n开始"
+        android:textColor="#fff"
+        app:layout_constraintBottom_toBottomOf="@id/cv_start"
+        app:layout_constraintLeft_toLeftOf="@id/cv_start"
+        app:layout_constraintRight_toRightOf="@id/cv_start"
+        app:layout_constraintTop_toTopOf="@id/cv_start" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
