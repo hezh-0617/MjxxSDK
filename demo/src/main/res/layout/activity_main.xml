@@ -43,20 +43,36 @@
         android:id="@+id/cv_start"
         android:layout_width="300dp"
         android:layout_height="300dp"
+        android:alpha="10"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/tv_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
         android:text="点击\n开始"
+        android:visibility="gone"
         android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="@id/cv_start"
         app:layout_constraintLeft_toLeftOf="@id/cv_start"
         app:layout_constraintRight_toRightOf="@id/cv_start"
         app:layout_constraintTop_toTopOf="@id/cv_start" />
+
+    <ImageView
+        android:id="@+id/iv_start"
+        android:layout_width="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@mipmap/ic_start"
+        android:layout_height="300dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

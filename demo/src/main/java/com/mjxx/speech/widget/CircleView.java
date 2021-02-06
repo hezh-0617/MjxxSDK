@@ -52,10 +52,10 @@ public class CircleView extends View {
         float cy = getHeight() / 2f;
 
         mPaint.setStyle(Paint.Style.FILL);
-        mPaint.setColor(Color.parseColor("#D5E1FC"));
+        mPaint.setColor(Color.parseColor("#C6D4E9"));
         canvas.drawCircle(cx, cy, radius, mPaint);
 
-        mPaint.setColor(Color.parseColor("#A9C1F8"));
+        mPaint.setColor(Color.parseColor("#A9C4F7"));
         canvas.drawCircle(cx, cy, radius / 3 * 2, mPaint);
 
         mPaint.setStrokeWidth(15);
