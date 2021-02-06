@@ -13,7 +13,7 @@ public class SpeechActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.i("SpeechActivity","onCreate");
+        Log.i("SpeechActivity", "onCreate");
         setContentView(R.layout.activity_speech);
         Config config = (Config) getIntent().getSerializableExtra("config");
         if (config == null) {
@@ -23,7 +23,7 @@ public class SpeechActivity extends AppCompatActivity {
         fragment.setOnCloseCallListener(new SpeechFragment.OnCloseCallListener() {
             @Override
             public void onCloseCall() {
-                Log.i("SpeechActivity","onCloseCall");
+                Log.i("SpeechActivity", "onCloseCall");
                 finish();
             }
         });
@@ -34,6 +34,11 @@ public class SpeechActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.i("SpeechActivity","onDestroy");
+        Log.i("SpeechActivity", "onDestroy");
+    }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
     }
 }

@@ -107,6 +107,9 @@ public class SettingActivity extends AppCompatActivity {
             case R.id.menu_debug:
                 config("config_debug.json");
 
+            case R.id.menu_proxy:
+                config("config_proxy.json");
+
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

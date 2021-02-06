@@ -6,6 +6,9 @@
 
     <item
         android:id="@+id/menu_debug"
-        android:title="测试服" />
+        android:title="公网测试" />
+    <item
+        android:id="@+id/menu_proxy"
+        android:title="公网代理" />
 
 </menu>

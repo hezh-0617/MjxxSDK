@@ -23,6 +23,8 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.baidu.speech.asr.SpeechConstant;
 import com.mjxx.speechlibsnative.BuildConfig;
@@ -121,9 +123,10 @@ public final class SpeechFragment extends Fragment {
         view.findViewById(R.id.btnBack).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (onCloseCallListener != null) {
-                    onCloseCallListener.onCloseCall();
-                }
+//                if (onCloseCallListener != null) {
+//                    onCloseCallListener.onCloseCall();
+//                }
+                onCloseCall();
             }
         });
         return view;
@@ -377,18 +380,27 @@ public final class SpeechFragment extends Fragment {
                 }
             }
         });
-
-
     }
 
     private void onBackPressed() {
         if (webView.canGoBack()) {
             webView.goBack();
         } else {
-            if (onCloseCallListener != null) {
-                onCloseCallListener.onCloseCall();
-            }
+            onCloseCall();
         }
+    }
+
+    private void onCloseCall() {
+
+        FragmentManager fm = getFragmentManager();
+        if (fm != null) {
+            fm.beginTransaction().remove(this).commitAllowingStateLoss();
+        }
+
+        if (onCloseCallListener != null) {
+            onCloseCallListener.onCloseCall();
+        }
+
     }
 
     final class JavaScriptInterface {
@@ -479,12 +491,12 @@ public final class SpeechFragment extends Fragment {
                     break;
 
                 case API_RELEASE_VOICE_TRANS:
-                    Log.i(TAG,"API_RELEASE_VOICE_TRANS");
+                    Log.i(TAG, "API_RELEASE_VOICE_TRANS");
                     recognizer.release();
                     break;
 
                 case API_ON_BACK_PRESS:
-                    Log.i(TAG,"API_ON_BACK_PRESS");
+                    Log.i(TAG, "API_ON_BACK_PRESS");
                     webView.post(new Runnable() {
                         @Override
                         public void run() {
