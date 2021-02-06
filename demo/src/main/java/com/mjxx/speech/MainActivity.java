@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -131,14 +132,17 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                if (TextUtils.equals("123456", text)) {
+                if (TextUtils.equals("667788", text)) {
                     toSetting();
+                } else {
+                    editText.setText("");
+                    Toast.makeText(MainActivity.this, "密码错误", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
         if (BuildConfig.DEBUG) {
-            editText.setText("123456");
+            editText.setText("667788");
         }
 
         builder.show();
@@ -148,4 +152,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, SettingActivity.class));
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 }

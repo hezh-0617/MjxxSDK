@@ -17,62 +17,60 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!--    <View-->
+    <!--        android:id="@+id/v_top"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="50dp"-->
+    <!--        android:background="@drawable/shape_top"-->
+    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--        app:layout_constraintRight_toRightOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
     <TextView
-        android:id="@+id/tv_title"
+        android:id="@+id/tv_title1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
+        android:layout_marginTop="120dp"
         android:gravity="center"
-        android:text="嗨，我是首都机场，\n您的语音助手。"
+        android:text="嗨，我是首都机场"
+        android:textColor="#5684F1"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_title2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:gravity="center"
+        android:text="您的语音小助手"
         android:textColor="#000"
         android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/tv_title1" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="我懂得可多了，号称百事通，快来问我吧！"
+        android:layout_marginTop="30dp"
+        android:text="我懂的可多了，号称百事通，快来问我吧！"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_title" />
-
-    <com.mjxx.speech.widget.CircleView
-        android:id="@+id/cv_start"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:alpha="10"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        android:text="点击\n开始"
-        android:visibility="gone"
-        android:textColor="#fff"
-        app:layout_constraintBottom_toBottomOf="@id/cv_start"
-        app:layout_constraintLeft_toLeftOf="@id/cv_start"
-        app:layout_constraintRight_toRightOf="@id/cv_start"
-        app:layout_constraintTop_toTopOf="@id/cv_start" />
+        app:layout_constraintTop_toBottomOf="@id/tv_title2" />
 
     <ImageView
         android:id="@+id/iv_start"
         android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@mipmap/ic_start"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@mipmap/ic_start"
-        android:layout_height="300dp"/>
+        app:layout_constraintRight_toRightOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

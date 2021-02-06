@@ -15,6 +15,21 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        debug {
+            keyAlias 'sg'
+            storeFile file('../doc/keystore.jks')
+            keyPassword 'caigeweiwu'
+            storePassword 'caigeweiwu'
+        }
+        release {
+            keyAlias 'sg'
+            storeFile file('../doc/keystore.jks')
+            keyPassword 'caigeweiwu'
+            storePassword 'caigeweiwu'
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
