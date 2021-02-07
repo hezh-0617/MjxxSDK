@@ -7,115 +7,131 @@
     android:padding="20dp"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:id="@+id/layout_asr_sever"
-        android:layout_width="match_parent"
+    <!--    适配百度大白椭圆屏幕-->
+    <ScrollView
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="AsrServerUrl" />
-        <!--        http://182.61.15.84:8090/v2-->
-        <!--内        http://10.40.21.86:8802/v2-->
-        <EditText
-            android:id="@+id/etAsrServerUrl"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="http://182.61.15.84:8090/v2"
-            app:layout_constraintTop_toTopOf="parent" />
-    </LinearLayout>
+            android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:id="@+id/layout_tts_server"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/layout_asr_sever">
+            <LinearLayout
+                android:id="@+id/layout_asr_sever"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TtsServerUrl" />
-        <!--        http://182.61.15.84:8802-->
-        <!--内        http://10.40.21.86:8802/-->
-        <EditText
-            android:id="@+id/etTtsServerUrl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="http://182.61.15.84:8802/"
-            app:layout_constraintTop_toTopOf="parent" />
-    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AsrServerUrl" />
+                <!--        http://182.61.15.84:8090/v2-->
+                <!--内        http://10.40.21.86:8802/v2-->
+                <EditText
+                    android:id="@+id/etAsrServerUrl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="http://182.61.15.84:8090/v2"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/layout_web"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/layout_tts_server">
+            <LinearLayout
+                android:id="@+id/layout_tts_server"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/layout_asr_sever">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="WebServerUrl" />
-        <!--        http://47.106.235.8:8889/#/-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TtsServerUrl" />
+                <!--        http://182.61.15.84:8802-->
+                <!--内        http://10.40.21.86:8802/-->
+                <EditText
+                    android:id="@+id/etTtsServerUrl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="http://182.61.15.84:8802/"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
 
-        <!--内        http://10.40.21.86:8090-->
+            <LinearLayout
+                android:id="@+id/layout_web"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/layout_tts_server">
 
-        <EditText
-            android:id="@+id/etWebServerUrl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="http://47.106.235.8:8889/#/"
-            app:layout_constraintTop_toTopOf="parent" />
-    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WebServerUrl" />
+                <!--        http://47.106.235.8:8889/#/-->
 
-    <LinearLayout
-        android:id="@+id/layout_pid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/layout_web">
+                <!--内        http://10.40.21.86:8090-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="AsrPid" />
+                <EditText
+                    android:id="@+id/etWebServerUrl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="http://47.106.235.8:8889/#/"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
 
-        <EditText
-            android:id="@+id/etAsrPid"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:text="888"
-            app:layout_constraintTop_toTopOf="parent" />
-    </LinearLayout>
+            <LinearLayout
+                android:id="@+id/layout_pid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/layout_web">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/layout_pid">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AsrPid" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="RemoteServer" />
+                <EditText
+                    android:id="@+id/etAsrPid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:text="888"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
 
-        <EditText
-            android:id="@+id/etRemoteServerHost"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:text=""
-            app:layout_constraintTop_toTopOf="parent" />
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/layout_pid">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RemoteServer" />
+
+                <EditText
+                    android:id="@+id/etRemoteServerHost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:text=""
+                    app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 
     <Button
