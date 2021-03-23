@@ -4,3 +4,443 @@ release {
             storeFile file('./keystore.jks')
             storePassword 'caigeweiwu'
         }
+
+2021-03-24 00:15:44.385 ? I/zygote: Late-enabling -Xcheck:jni
+2021-03-24 00:15:44.476 com.mjxx.speech W/ResourceType: No package identifier when getting name for resource number 0x00000000
+2021-03-24 00:15:44.487 com.mjxx.speech W/CrashReport: Bugly debug模式开启，请在发布时把isDebug关闭。 -- Running in debug model for 'isDebug' is enabled. Please disable it when you release.
+2021-03-24 00:15:44.487 com.mjxx.speech E/CrashReport: --------------------------------------------------------------------------------------------
+2021-03-24 00:15:44.487 com.mjxx.speech W/CrashReport: Bugly debug模式将有以下行为特性 -- The following list shows the behaviour of debug model:
+2021-03-24 00:15:44.487 com.mjxx.speech W/CrashReport: [1] 输出详细的Bugly SDK的Log -- More detailed log of Bugly SDK will be output to logcat;
+2021-03-24 00:15:44.487 com.mjxx.speech W/CrashReport: [2] 每一条Crash都会被立即上报 -- Every crash caught by Bugly will be uploaded immediately.
+2021-03-24 00:15:44.487 com.mjxx.speech W/CrashReport: [3] 自定义日志将会在Logcat中输出 -- Custom log will be output to logcat.
+2021-03-24 00:15:44.487 com.mjxx.speech E/CrashReport: --------------------------------------------------------------------------------------------
+2021-03-24 00:15:44.487 com.mjxx.speech I/CrashReportInfo: [init] Open debug mode of Bugly.
+2021-03-24 00:15:44.487 com.mjxx.speech I/CrashReport:  crash report start initializing...
+2021-03-24 00:15:44.487 com.mjxx.speech I/CrashReportInfo: [init] Bugly start initializing...
+2021-03-24 00:15:44.487 com.mjxx.speech I/CrashReport: [init] Bugly complete version: v3.3.7
+2021-03-24 00:15:44.552 com.mjxx.speech D/CrashReport: com info create end
+2021-03-24 00:15:44.553 com.mjxx.speech D/CrashReport: SDK_INFO is empty
+2021-03-24 00:15:44.556 com.mjxx.speech I/CrashReport: [param] Set APP ID:5c8bf634c6
+2021-03-24 00:15:44.558 com.mjxx.speech D/CrashReport: [AsyncTaskHandler] Post a normal task: com.tencent.bugly.proguard.n$2
+2021-03-24 00:15:44.558 com.mjxx.speech I/CrashReport: Initializing crash module.
+2021-03-24 00:15:44.559 com.mjxx.speech D/CrashReport: [AsyncTaskHandler] Post a normal task: com.tencent.bugly.proguard.n$1
+2021-03-24 00:15:44.560 com.mjxx.speech I/CrashReport: backup java handler: com.android.internal.os.RuntimeInit$KillApplicationHandler@27d9bfc
+2021-03-24 00:15:44.560 com.mjxx.speech I/CrashReport: registered java monitor: com.tencent.bugly.crashreport.crash.e@5ea6285
+2021-03-24 00:15:44.561 com.mjxx.speech I/CrashReport: user change native true
+2021-03-24 00:15:44.562 com.mjxx.speech I/CrashReport: native changed to true
+2021-03-24 00:15:44.562 com.mjxx.speech I/CrashReport: [Native] Trying to load so: Bugly
+2021-03-24 00:15:44.563 com.mjxx.speech W/CrashReport: dalvik.system.PathClassLoader[DexPathList[[zip file "/data/app/com.mjxx.speech-7UAXDPcIyb20k18BY52nJg==/base.apk"],nativeLibraryDirectories=[/data/app/com.mjxx.speech-7UAXDPcIyb20k18BY52nJg==/lib/arm, /data/app/com.mjxx.speech-7UAXDPcIyb20k18BY52nJg==/base.apk!/lib/armeabi-v7a, /system/lib, /vendor/lib]]] couldn't find "libBugly.so"
+2021-03-24 00:15:44.563 com.mjxx.speech W/CrashReport: [Native] Failed to load so: Bugly
+2021-03-24 00:15:44.564 com.mjxx.speech I/CrashReport: anr changed to true
+2021-03-24 00:15:44.564 com.mjxx.speech D/CrashReport: [AsyncTaskHandler] Post a normal task: com.tencent.bugly.crashreport.crash.anr.b$3
+2021-03-24 00:15:44.566 com.mjxx.speech I/CrashReport: startWatchingPrivateAnrDir! dumFilePath is /data/user/0/com.mjxx.speech/app_bugly
+2021-03-24 00:15:44.566 com.mjxx.speech D/CrashReport: [AsyncTaskHandler] Post a normal task: com.tencent.bugly.crashreport.crash.anr.b$5
+2021-03-24 00:15:44.566 com.mjxx.speech D/CrashReport: [AsyncTaskHandler] Post a delay(time: 0ms) task: com.tencent.bugly.crashreport.crash.c$2
+2021-03-24 00:15:44.567 com.mjxx.speech D/CrashReport: [AsyncTaskHandler] Post a normal task: com.tencent.bugly.crashreport.crash.jni.NativeCrashHandler$1
+2021-03-24 00:15:44.567 com.mjxx.speech D/CrashReport: [AsyncTaskHandler] Post a normal task: com.tencent.bugly.crashreport.crash.d$1
+2021-03-24 00:15:44.568 com.mjxx.speech D/CrashReport: add action android.net.conn.CONNECTIVITY_CHANGE
+2021-03-24 00:15:44.568 com.mjxx.speech D/CrashReport: [AsyncTaskHandler] Post a normal task: com.tencent.bugly.crashreport.crash.BuglyBroadcastReceiver$1
+2021-03-24 00:15:44.568 com.mjxx.speech D/CrashReport: [AsyncTaskHandler] Post a normal task: com.tencent.bugly.proguard.n$1
+2021-03-24 00:15:44.569 com.mjxx.speech D/CrashReport: [Util] Try to lock file:native_record_lock (pid=4880 | tid=4910)
+2021-03-24 00:15:44.570 com.mjxx.speech D/CrashReport: [AsyncTaskHandler] Post a delay(time: 0ms) task: com.tencent.bugly.crashreport.biz.a$a
+2021-03-24 00:15:44.570 com.mjxx.speech I/CrashReport: [session] launch app, new start
+2021-03-24 00:15:44.570 com.mjxx.speech D/CrashReport: [AsyncTaskHandler] Post a delay(time: 85460430ms) task: com.tencent.bugly.crashreport.biz.a$b
+2021-03-24 00:15:44.570 com.mjxx.speech D/CrashReport: [Util] Successfully locked file: native_record_lock (pid=4880 | tid=4910)
+2021-03-24 00:15:44.571 com.mjxx.speech D/CrashReport: [AsyncTaskHandler] Post a delay(time: 21600000ms) task: com.tencent.bugly.crashreport.biz.a$c
+2021-03-24 00:15:44.571 com.mjxx.speech D/CrashReport: [Util] Try to unlock file: native_record_lock (pid=4880 | tid=4910)
+2021-03-24 00:15:44.571 com.mjxx.speech D/CrashReport: [AsyncTaskHandler] Post a delay(time: 0ms) task: com.tencent.bugly.crashreport.common.strategy.a$1
+2021-03-24 00:15:44.571 com.mjxx.speech I/CrashReportInfo: [init] Bugly initialization finished.
+2021-03-24 00:15:44.572 com.mjxx.speech D/CrashReport: [Util] Successfully unlocked file: native_record_lock (pid=4880 | tid=4910)
+2021-03-24 00:15:44.572 com.mjxx.speech D/CrashReport: [Util] Try to lock file:local_crash_lock (pid=4880 | tid=4907)
+2021-03-24 00:15:44.572 com.mjxx.speech D/CrashReport: [ExtraCrashManager] Trying to notify Bugly agents.
+2021-03-24 00:15:44.572 com.mjxx.speech I/CrashReport: [BuglyBroadcastReceiver] Register broadcast receiver of Bugly.
+2021-03-24 00:15:44.572 com.mjxx.speech I/CrashReport: [ExtraCrashManager] no game agent
+2021-03-24 00:15:44.572 com.mjxx.speech D/CrashReport: [Util] Successfully locked file: local_crash_lock (pid=4880 | tid=4907)
+2021-03-24 00:15:44.574 com.mjxx.speech D/CrashReport: [UserInfo] Record user info.
+2021-03-24 00:15:44.577 com.mjxx.speech W/ResourceType: No package identifier when getting name for resource number 0x00000000
+2021-03-24 00:15:44.580 com.mjxx.speech D/CrashReport: Size of crash list loaded from DB: 0
+2021-03-24 00:15:44.580 com.mjxx.speech D/CrashReport: [Util] Try to unlock file: local_crash_lock (pid=4880 | tid=4907)
+2021-03-24 00:15:44.581 com.mjxx.speech D/CrashReport: [Util] Successfully unlocked file: local_crash_lock (pid=4880 | tid=4907)
+2021-03-24 00:15:44.587 com.mjxx.speech W/ResourceType: No package identifier when getting name for resource number 0x00000000
+2021-03-24 00:15:44.593 com.mjxx.speech D/CrashReport: [Database] insert t_ui success.
+2021-03-24 00:15:44.594 com.mjxx.speech D/CrashReport: [Database] insert t_ui success with ID: 14
+2021-03-24 00:15:44.596 com.mjxx.speech D/CrashReport: [Strategy] Notify com.tencent.bugly.crashreport.biz.b
+2021-03-24 00:15:44.596 com.mjxx.speech D/CrashReport: [AsyncTaskHandler] Post a normal task: com.tencent.bugly.crashreport.biz.a$2
+2021-03-24 00:15:44.597 com.mjxx.speech D/CrashReport: [Strategy] Notify com.tencent.bugly.CrashModule
+2021-03-24 00:15:44.597 com.mjxx.speech D/CrashReport: Uploading frequency will not be checked if SDK is in debug mode.
+2021-03-24 00:15:44.597 com.mjxx.speech W/CrashReport: server native changed to true
+2021-03-24 00:15:44.597 com.mjxx.speech I/CrashReport: native changed to true
+2021-03-24 00:15:44.597 com.mjxx.speech I/CrashReport: [Native] Trying to load so: Bugly
+2021-03-24 00:15:44.598 com.mjxx.speech W/CrashReport: dalvik.system.PathClassLoader[DexPathList[[zip file "/data/app/com.mjxx.speech-7UAXDPcIyb20k18BY52nJg==/base.apk"],nativeLibraryDirectories=[/data/app/com.mjxx.speech-7UAXDPcIyb20k18BY52nJg==/lib/arm, /data/app/com.mjxx.speech-7UAXDPcIyb20k18BY52nJg==/base.apk!/lib/armeabi-v7a, /system/lib, /vendor/lib]]] couldn't find "libBugly.so"
+2021-03-24 00:15:44.598 com.mjxx.speech W/CrashReport: [Native] Failed to load so: Bugly
+2021-03-24 00:15:44.598 com.mjxx.speech W/CrashReport: customer decides whether to open or close.
+2021-03-24 00:15:44.599 com.mjxx.speech D/CrashReport: [AsyncTaskHandler] Post a delay(time: 3000ms) task: com.tencent.bugly.crashreport.crash.c$2
+2021-03-24 00:15:44.601 com.mjxx.speech D/CrashReport: [UserInfo] Upload user info(size: 2)
+2021-03-24 00:15:44.602 com.mjxx.speech D/CrashReport: SDK_INFO is empty
+2021-03-24 00:15:44.605 com.mjxx.speech D/CrashReport: summary type 3 vm:8
+2021-03-24 00:15:44.605 com.mjxx.speech D/CrashReport: summary type 1 vm:8
+2021-03-24 00:15:44.606 com.mjxx.speech D/CrashReport: >>> com.mjxx.speech.MainActivity onCreated <<<
+2021-03-24 00:15:44.612 com.mjxx.speech E/InterceptorFactory: NameNotFoundException
+    android.content.pm.PackageManager$NameNotFoundException: com.miui.contentcatcher
+        at android.app.ApplicationPackageManager.getPackageInfoAsUser(ApplicationPackageManager.java:174)
+        at android.app.ApplicationPackageManager.getPackageInfo(ApplicationPackageManager.java:145)
+        at miui.contentcatcher.InterceptorFactory.getInterceptorPackageInfo(InterceptorFactory.java:80)
+        at miui.contentcatcher.InterceptorFactory.initInterceptorClass(InterceptorFactory.java:99)
+        at miui.contentcatcher.InterceptorFactory.createInterceptor(InterceptorFactory.java:41)
+        at miui.contentcatcher.InterceptorProxy$H.handleMessage(InterceptorProxy.java:323)
+        at android.os.Handler.dispatchMessage(Handler.java:106)
+        at android.os.Looper.loop(Looper.java:173)
+        at android.os.HandlerThread.run(HandlerThread.java:65)
+2021-03-24 00:15:44.623 com.mjxx.speech D/AccessibilityManager: AccessibilityManager status: mPackageName = com.mjxx.speech, mOptimizeEnabled = false, mIsEnabled = false, mIsUiAutomationEnabled = false, mIsInterestedPackage =false
+2021-03-24 00:15:44.637 com.mjxx.speech I/zygote: Rejecting re-init on previously-failed class java.lang.Class<androidx.core.view.ViewCompat$2>: java.lang.NoClassDefFoundError: Failed resolution of: Landroid/view/View$OnUnhandledKeyEventListener;
+2021-03-24 00:15:44.637 com.mjxx.speech I/zygote:     at void androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener(android.view.View, androidx.core.view.OnApplyWindowInsetsListener) (ViewCompat.java:2463)
+2021-03-24 00:15:44.637 com.mjxx.speech I/zygote:     at android.view.ViewGroup androidx.appcompat.app.AppCompatDelegateImpl.createSubDecor() (AppCompatDelegateImpl.java:938)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void androidx.appcompat.app.AppCompatDelegateImpl.ensureSubDecor() (AppCompatDelegateImpl.java:806)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void androidx.appcompat.app.AppCompatDelegateImpl.setContentView(int) (AppCompatDelegateImpl.java:693)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void androidx.appcompat.app.AppCompatActivity.setContentView(int) (AppCompatActivity.java:170)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void com.mjxx.speech.MainActivity.onCreate(android.os.Bundle) (MainActivity.java:39)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void android.app.Activity.performCreate(android.os.Bundle, android.os.PersistableBundle) (Activity.java:7088)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void android.app.Activity.performCreate(android.os.Bundle) (Activity.java:7079)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void android.app.Instrumentation.callActivityOnCreate(android.app.Activity, android.os.Bundle) (Instrumentation.java:1215)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at android.app.Activity android.app.ActivityThread.performLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent) (ActivityThread.java:2770)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void android.app.ActivityThread.handleLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:2895)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void android.app.ActivityThread.-wrap11(android.app.ActivityThread, android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:-1)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1616)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:106)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void android.os.Looper.loop() (Looper.java:173)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6651)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at java.lang.Object java.lang.reflect.Method.invoke(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run() (RuntimeInit.java:547)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:822)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote: Caused by: java.lang.ClassNotFoundException: Didn't find class "android.view.View$OnUnhandledKeyEventListener" on path: DexPathList[[zip file "/data/app/com.mjxx.speech-7UAXDPcIyb20k18BY52nJg==/base.apk"],nativeLibraryDirectories=[/data/app/com.mjxx.speech-7UAXDPcIyb20k18BY52nJg==/lib/arm, /data/app/com.mjxx.speech-7UAXDPcIyb20k18BY52nJg==/base.apk!/lib/armeabi-v7a, /system/lib, /vendor/lib]]
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at java.lang.Class dalvik.system.BaseDexClassLoader.findClass(java.lang.String) (BaseDexClassLoader.java:125)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String, boolean) (ClassLoader.java:379)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String) (ClassLoader.java:312)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener(android.view.View, androidx.core.view.OnApplyWindowInsetsListener) (ViewCompat.java:2463)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at android.view.ViewGroup androidx.appcompat.app.AppCompatDelegateImpl.createSubDecor() (AppCompatDelegateImpl.java:938)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void androidx.appcompat.app.AppCompatDelegateImpl.ensureSubDecor() (AppCompatDelegateImpl.java:806)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void androidx.appcompat.app.AppCompatDelegateImpl.setContentView(int) (AppCompatDelegateImpl.java:693)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void androidx.appcompat.app.AppCompatActivity.setContentView(int) (AppCompatActivity.java:170)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void com.mjxx.speech.MainActivity.onCreate(android.os.Bundle) (MainActivity.java:39)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void android.app.Activity.performCreate(android.os.Bundle, android.os.PersistableBundle) (Activity.java:7088)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void android.app.Activity.performCreate(android.os.Bundle) (Activity.java:7079)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void android.app.Instrumentation.callActivityOnCreate(android.app.Activity, android.os.Bundle) (Instrumentation.java:1215)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at android.app.Activity android.app.ActivityThread.performLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent) (ActivityThread.java:2770)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void android.app.ActivityThread.handleLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:2895)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void android.app.ActivityThread.-wrap11(android.app.ActivityThread, android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:-1)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1616)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:106)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void android.os.Looper.loop() (Looper.java:173)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6651)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at java.lang.Object java.lang.reflect.Method.invoke(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run() (RuntimeInit.java:547)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:822)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote: Rejecting re-init on previously-failed class java.lang.Class<androidx.core.view.ViewCompat$2>: java.lang.NoClassDefFoundError: Failed resolution of: Landroid/view/View$OnUnhandledKeyEventListener;
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener(android.view.View, androidx.core.view.OnApplyWindowInsetsListener) (ViewCompat.java:2463)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at android.view.ViewGroup androidx.appcompat.app.AppCompatDelegateImpl.createSubDecor() (AppCompatDelegateImpl.java:938)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void androidx.appcompat.app.AppCompatDelegateImpl.ensureSubDecor() (AppCompatDelegateImpl.java:806)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void androidx.appcompat.app.AppCompatDelegateImpl.setContentView(int) (AppCompatDelegateImpl.java:693)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void androidx.appcompat.app.AppCompatActivity.setContentView(int) (AppCompatActivity.java:170)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void com.mjxx.speech.MainActivity.onCreate(android.os.Bundle) (MainActivity.java:39)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void android.app.Activity.performCreate(android.os.Bundle, android.os.PersistableBundle) (Activity.java:7088)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void android.app.Activity.performCreate(android.os.Bundle) (Activity.java:7079)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void android.app.Instrumentation.callActivityOnCreate(android.app.Activity, android.os.Bundle) (Instrumentation.java:1215)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at android.app.Activity android.app.ActivityThread.performLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent) (ActivityThread.java:2770)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void android.app.ActivityThread.handleLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:2895)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void android.app.ActivityThread.-wrap11(android.app.ActivityThread, android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:-1)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1616)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:106)
+2021-03-24 00:15:44.638 com.mjxx.speech I/zygote:     at void android.os.Looper.loop() (Looper.java:173)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6651)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at java.lang.Object java.lang.reflect.Method.invoke(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run() (RuntimeInit.java:547)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:822)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote: Caused by: java.lang.ClassNotFoundException: Didn't find class "android.view.View$OnUnhandledKeyEventListener" on path: DexPathList[[zip file "/data/app/com.mjxx.speech-7UAXDPcIyb20k18BY52nJg==/base.apk"],nativeLibraryDirectories=[/data/app/com.mjxx.speech-7UAXDPcIyb20k18BY52nJg==/lib/arm, /data/app/com.mjxx.speech-7UAXDPcIyb20k18BY52nJg==/base.apk!/lib/armeabi-v7a, /system/lib, /vendor/lib]]
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at java.lang.Class dalvik.system.BaseDexClassLoader.findClass(java.lang.String) (BaseDexClassLoader.java:125)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String, boolean) (ClassLoader.java:379)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String) (ClassLoader.java:312)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener(android.view.View, androidx.core.view.OnApplyWindowInsetsListener) (ViewCompat.java:2463)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at android.view.ViewGroup androidx.appcompat.app.AppCompatDelegateImpl.createSubDecor() (AppCompatDelegateImpl.java:938)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void androidx.appcompat.app.AppCompatDelegateImpl.ensureSubDecor() (AppCompatDelegateImpl.java:806)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void androidx.appcompat.app.AppCompatDelegateImpl.setContentView(int) (AppCompatDelegateImpl.java:693)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void androidx.appcompat.app.AppCompatActivity.setContentView(int) (AppCompatActivity.java:170)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void com.mjxx.speech.MainActivity.onCreate(android.os.Bundle) (MainActivity.java:39)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void android.app.Activity.performCreate(android.os.Bundle, android.os.PersistableBundle) (Activity.java:7088)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void android.app.Activity.performCreate(android.os.Bundle) (Activity.java:7079)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void android.app.Instrumentation.callActivityOnCreate(android.app.Activity, android.os.Bundle) (Instrumentation.java:1215)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at android.app.Activity android.app.ActivityThread.performLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent) (ActivityThread.java:2770)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void android.app.ActivityThread.handleLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:2895)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void android.app.ActivityThread.-wrap11(android.app.ActivityThread, android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:-1)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1616)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:106)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void android.os.Looper.loop() (Looper.java:173)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6651)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at java.lang.Object java.lang.reflect.Method.invoke(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run() (RuntimeInit.java:547)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:822)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote: Rejecting re-init on previously-failed class java.lang.Class<androidx.core.view.ViewCompat$2>: java.lang.NoClassDefFoundError: Failed resolution of: Landroid/view/View$OnUnhandledKeyEventListener;
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener(android.view.View, androidx.core.view.OnApplyWindowInsetsListener) (ViewCompat.java:2463)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at android.view.ViewGroup androidx.appcompat.app.AppCompatDelegateImpl.createSubDecor() (AppCompatDelegateImpl.java:938)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void androidx.appcompat.app.AppCompatDelegateImpl.ensureSubDecor() (AppCompatDelegateImpl.java:806)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void androidx.appcompat.app.AppCompatDelegateImpl.setContentView(int) (AppCompatDelegateImpl.java:693)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void androidx.appcompat.app.AppCompatActivity.setContentView(int) (AppCompatActivity.java:170)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void com.mjxx.speech.MainActivity.onCreate(android.os.Bundle) (MainActivity.java:39)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void android.app.Activity.performCreate(android.os.Bundle, android.os.PersistableBundle) (Activity.java:7088)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void android.app.Activity.performCreate(android.os.Bundle) (Activity.java:7079)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void android.app.Instrumentation.callActivityOnCreate(android.app.Activity, android.os.Bundle) (Instrumentation.java:1215)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at android.app.Activity android.app.ActivityThread.performLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent) (ActivityThread.java:2770)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void android.app.ActivityThread.handleLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:2895)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void android.app.ActivityThread.-wrap11(android.app.ActivityThread, android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:-1)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1616)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:106)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void android.os.Looper.loop() (Looper.java:173)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6651)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at java.lang.Object java.lang.reflect.Method.invoke(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run() (RuntimeInit.java:547)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:822)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote: Caused by: java.lang.ClassNotFoundException: Didn't find class "android.view.View$OnUnhandledKeyEventListener" on path: DexPathList[[zip file "/data/app/com.mjxx.speech-7UAXDPcIyb20k18BY52nJg==/base.apk"],nativeLibraryDirectories=[/data/app/com.mjxx.speech-7UAXDPcIyb20k18BY52nJg==/lib/arm, /data/app/com.mjxx.speech-7UAXDPcIyb20k18BY52nJg==/base.apk!/lib/armeabi-v7a, /system/lib, /vendor/lib]]
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at java.lang.Class dalvik.system.BaseDexClassLoader.findClass(java.lang.String) (BaseDexClassLoader.java:125)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String, boolean) (ClassLoader.java:379)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String) (ClassLoader.java:312)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener(android.view.View, androidx.core.view.OnApplyWindowInsetsListener) (ViewCompat.java:2463)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at android.view.ViewGroup androidx.appcompat.app.AppCompatDelegateImpl.createSubDecor() (AppCompatDelegateImpl.java:938)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void androidx.appcompat.app.AppCompatDelegateImpl.ensureSubDecor() (AppCompatDelegateImpl.java:806)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void androidx.appcompat.app.AppCompatDelegateImpl.setContentView(int) (AppCompatDelegateImpl.java:693)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void androidx.appcompat.app.AppCompatActivity.setContentView(int) (AppCompatActivity.java:170)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void com.mjxx.speech.MainActivity.onCreate(android.os.Bundle) (MainActivity.java:39)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void android.app.Activity.performCreate(android.os.Bundle, android.os.PersistableBundle) (Activity.java:7088)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void android.app.Activity.performCreate(android.os.Bundle) (Activity.java:7079)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void android.app.Instrumentation.callActivityOnCreate(android.app.Activity, android.os.Bundle) (Instrumentation.java:1215)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at android.app.Activity android.app.ActivityThread.performLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent) (ActivityThread.java:2770)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void android.app.ActivityThread.handleLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:2895)
+2021-03-24 00:15:44.639 com.mjxx.speech I/zygote:     at void android.app.ActivityThread.-wrap11(android.app.ActivityThread, android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:-1)
+2021-03-24 00:15:44.640 com.mjxx.speech I/zygote:     at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1616)
+2021-03-24 00:15:44.640 com.mjxx.speech I/zygote:     at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:106)
+2021-03-24 00:15:44.640 com.mjxx.speech I/zygote:     at void android.os.Looper.loop() (Looper.java:173)
+2021-03-24 00:15:44.640 com.mjxx.speech I/zygote:     at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6651)
+2021-03-24 00:15:44.640 com.mjxx.speech I/zygote:     at java.lang.Object java.lang.reflect.Method.invoke(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+2021-03-24 00:15:44.640 com.mjxx.speech I/zygote:     at void com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run() (RuntimeInit.java:547)
+2021-03-24 00:15:44.640 com.mjxx.speech I/zygote:     at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:822)
+2021-03-24 00:15:44.659 com.mjxx.speech D/CrashReport: [z] Successfully get 'getprop' list.
+2021-03-24 00:15:44.690 com.mjxx.speech D/CrashReport: [z] Systems properties number: 575.
+2021-03-24 00:15:44.691 com.mjxx.speech D/CrashReport: [b] ABI list: arm64-v8a,armeabi-v7a,armeabi
+2021-03-24 00:15:44.707 com.mjxx.speech I/CrashReport: ROM ID: XiaoMi/MIUI/V10
+2021-03-24 00:15:44.718 com.mjxx.speech I/CrashReport: Is it a virtual machine? false
+2021-03-24 00:15:44.734 com.mjxx.speech D/CrashReport: >>> com.mjxx.speech.MainActivity onResumed <<<
+2021-03-24 00:15:44.737 com.mjxx.speech I/CrashReport: [session] launch app one times (app in background 1616516144 seconds and over 30 seconds)
+2021-03-24 00:15:44.738 com.mjxx.speech D/CrashReport: [AsyncTaskHandler] Post a delay(time: 0ms) task: com.tencent.bugly.crashreport.biz.a$a
+2021-03-24 00:15:44.738 com.mjxx.speech I/CrashReport: add a timer to upload hot start user info
+2021-03-24 00:15:44.738 com.mjxx.speech D/CrashReport: [UserInfo] Record user info.
+2021-03-24 00:15:44.738 com.mjxx.speech D/CrashReport: [AsyncTaskHandler] Post a delay(time: 300000ms) task: com.tencent.bugly.crashreport.biz.a$a
+2021-03-24 00:15:44.753 com.mjxx.speech D/OpenGLRenderer: HWUI GL Pipeline
+2021-03-24 00:15:44.754 com.mjxx.speech I/CrashReport: Does it has hook frame? false
+2021-03-24 00:15:44.756 com.mjxx.speech D/CrashReport: [Database] insert t_ui success.
+2021-03-24 00:15:44.756 com.mjxx.speech D/CrashReport: [Database] insert t_ui success with ID: 15
+2021-03-24 00:15:44.756 com.mjxx.speech D/CrashReport: [UploadManager] Add upload task (pid=4880 | tid=4907)
+2021-03-24 00:15:44.757 com.mjxx.speech D/CrashReport: [UploadManager] Add upload task to queue (pid=4880 | tid=4907)
+2021-03-24 00:15:44.757 com.mjxx.speech D/CrashReport: [UploadManager] Try to poll all upload task need and put them into temp queue (pid=4880 | tid=4907)
+2021-03-24 00:15:44.758 com.mjxx.speech D/CrashReport: [UploadManager] Execute urgent upload tasks of queue which has 1 tasks (pid=4880 | tid=4907)
+2021-03-24 00:15:44.758 com.mjxx.speech I/CrashReport: [UploadManager] Create and start a new thread to execute a upload task: BUGLY_ASYNC_UPLOAD
+2021-03-24 00:15:44.759 com.mjxx.speech D/CrashReport: [AsyncTaskHandler] Post a normal task: com.tencent.bugly.proguard.u$2
+2021-03-24 00:15:44.760 com.mjxx.speech D/CrashReport: [Upload] Run upload task with cmd: 840
+2021-03-24 00:15:44.761 com.mjxx.speech D/CrashReport: [Util] Zip 1084 bytes data with type Gzip
+2021-03-24 00:15:44.772 com.mjxx.speech D/CrashReport: [Database] deleted t_lr data 1
+2021-03-24 00:15:44.781 com.mjxx.speech D/CrashReport: [Database] insert t_lr success.
+2021-03-24 00:15:44.783 com.mjxx.speech D/CrashReport: [UploadManager] Uploading(ID:1001) time: 2021-03-24 00:15:44
+2021-03-24 00:15:44.783 com.mjxx.speech D/CrashReport: [Upload] Send 643 bytes
+2021-03-24 00:15:44.784 com.mjxx.speech D/CrashReport: [Upload] Upload to https://android.bugly.qq.com/rqd/async?aid=ef1fe9d8-b6ae-4c48-9192-351dc913eaf5 with cmd 840 (pid=4880 | tid=4920).
+2021-03-24 00:15:44.785 com.mjxx.speech D/CrashReport: request: https://android.bugly.qq.com/rqd/async?aid=ef1fe9d8-b6ae-4c48-9192-351dc913eaf5, send: 643 (pid=4880 | tid=4920)
+2021-03-24 00:15:44.786 com.mjxx.speech I/Adreno: QUALCOMM build                   : dcd4b96, I568c71768a
+    Build Date                       : 04/30/18
+    OpenGL ES Shader Compiler Version: EV031.22.00.01_06
+    Local Branch                     :
+    Remote Branch                    : quic/gfx-adreno.lnx.1.0.r33-rel
+    Remote Branch                    : NONE
+    Reconstruct Branch               : NOTHING
+2021-03-24 00:15:44.791 com.mjxx.speech I/Adreno: PFP: 0x005ff087, ME: 0x005ff063
+2021-03-24 00:15:44.797 com.mjxx.speech I/zygote: android::hardware::configstore::V1_0::ISurfaceFlingerConfigs::hasWideColorDisplay retrieved: 0
+2021-03-24 00:15:44.797 com.mjxx.speech I/OpenGLRenderer: Initialized EGL, version 1.4
+2021-03-24 00:15:44.797 com.mjxx.speech D/OpenGLRenderer: Swap behavior 2
+2021-03-24 00:15:44.800 com.mjxx.speech I/DpmTcmClient: RegisterTcmMonitor from: com.android.okhttp.TcmIdleTimerMonitor
+2021-03-24 00:15:44.803 com.mjxx.speech I/DpmTcmClient: RegisterTcmMonitor from: com.android.okhttp.TcmIdleTimerMonitor
+2021-03-24 00:15:44.874 com.mjxx.speech D/CrashReport: checkServerTrusted
+2021-03-24 00:15:44.917 com.mjxx.speech D/CrashReport: [Upload] Bugly version from headers is: bugly/1.0
+2021-03-24 00:15:44.918 com.mjxx.speech D/CrashReport: [Upload] Status from server is 0 (pid=4880 | tid=4920).
+2021-03-24 00:15:44.918 com.mjxx.speech D/CrashReport: [Upload] Received 96 bytes
+2021-03-24 00:15:44.918 com.mjxx.speech D/CrashReport: [Util] Unzip 96 bytes data with type Gzip
+2021-03-24 00:15:44.919 com.mjxx.speech W/CrashReport: Not in GZIP format
+2021-03-24 00:15:44.921 com.mjxx.speech D/CrashReport: [Upload] Response cmd is: 0, length of sBuffer is: 0
+2021-03-24 00:15:44.921 com.mjxx.speech I/CrashReport: [Upload] Success: userinfo
+2021-03-24 00:15:44.924 com.mjxx.speech D/CrashReport: [UploadManager] Local network consume: 5 KB
+2021-03-24 00:15:44.938 com.mjxx.speech D/CrashReport: [Database] deleted t_lr data 1
+2021-03-24 00:15:44.954 com.mjxx.speech D/CrashReport: [Database] insert t_lr success.
+2021-03-24 00:15:44.955 com.mjxx.speech D/CrashReport: [UploadManager] Network total consume: 5 KB
+2021-03-24 00:15:44.955 com.mjxx.speech D/CrashReport: [UserInfo] Successfully uploaded user info.
+2021-03-24 00:15:44.974 com.mjxx.speech D/CrashReport: [Database] insert t_ui success.
+2021-03-24 00:15:44.975 com.mjxx.speech D/CrashReport: [Database] insert t_ui success with ID: 13
+2021-03-24 00:15:44.989 com.mjxx.speech D/CrashReport: [Database] insert t_ui success.
+2021-03-24 00:15:44.990 com.mjxx.speech D/CrashReport: [Database] insert t_ui success with ID: 14
+2021-03-24 00:15:45.308 com.mjxx.speech I/zygote: Do partial code cache collection, code=29KB, data=28KB
+2021-03-24 00:15:45.308 com.mjxx.speech I/zygote: After code cache collection, code=29KB, data=28KB
+2021-03-24 00:15:45.308 com.mjxx.speech I/zygote: Increasing code cache capacity to 128KB
+2021-03-24 00:15:47.602 com.mjxx.speech D/CrashReport: [Util] Try to lock file:local_crash_lock (pid=4880 | tid=4907)
+2021-03-24 00:15:47.604 com.mjxx.speech D/CrashReport: [Util] Successfully locked file: local_crash_lock (pid=4880 | tid=4907)
+2021-03-24 00:15:47.606 com.mjxx.speech D/CrashReport: Size of crash list loaded from DB: 0
+2021-03-24 00:15:47.607 com.mjxx.speech D/CrashReport: [Util] Try to unlock file: local_crash_lock (pid=4880 | tid=4907)
+2021-03-24 00:15:47.608 com.mjxx.speech D/CrashReport: [Util] Successfully unlocked file: local_crash_lock (pid=4880 | tid=4907)
+2021-03-24 00:15:47.745 com.mjxx.speech I/zygote: Do partial code cache collection, code=62KB, data=56KB
+2021-03-24 00:15:47.746 com.mjxx.speech I/zygote: After code cache collection, code=62KB, data=56KB
+2021-03-24 00:15:47.746 com.mjxx.speech I/zygote: Increasing code cache capacity to 256KB
+2021-03-24 00:15:48.280 com.mjxx.speech D/CrashReport: >>> com.mjxx.speech.MainActivity onPaused <<<
+2021-03-24 00:15:48.298 com.mjxx.speech D/CrashReport: >>> com.mjxx.speechlibsnative.sdk.SpeechActivity onCreated <<<
+2021-03-24 00:15:48.300 com.mjxx.speech I/SpeechActivity: onCreate
+2021-03-24 00:15:48.300 com.mjxx.speech E/InterceptorFactory: NameNotFoundException
+    android.content.pm.PackageManager$NameNotFoundException: com.miui.contentcatcher
+        at android.app.ApplicationPackageManager.getPackageInfoAsUser(ApplicationPackageManager.java:174)
+        at android.app.ApplicationPackageManager.getPackageInfo(ApplicationPackageManager.java:145)
+        at miui.contentcatcher.InterceptorFactory.getInterceptorPackageInfo(InterceptorFactory.java:80)
+        at miui.contentcatcher.InterceptorFactory.initInterceptorClass(InterceptorFactory.java:99)
+        at miui.contentcatcher.InterceptorFactory.createInterceptor(InterceptorFactory.java:41)
+        at miui.contentcatcher.InterceptorProxy$H.handleMessage(InterceptorProxy.java:323)
+        at android.os.Handler.dispatchMessage(Handler.java:106)
+        at android.os.Looper.loop(Looper.java:173)
+        at android.os.HandlerThread.run(HandlerThread.java:65)
+2021-03-24 00:15:48.317 com.mjxx.speech I/SpeechFragment: onAttach
+2021-03-24 00:15:48.325 com.mjxx.speech W/ResourceType: No package identifier when getting name for resource number 0x00000000
+2021-03-24 00:15:48.328 com.mjxx.speech I/WebViewFactory: Loading com.google.android.webview version 71.0.3578.99 (code 357809950)
+2021-03-24 00:15:48.352 com.mjxx.speech I/cr_LibraryLoader: Time to load native libraries: 3 ms (timestamps 326-329)
+2021-03-24 00:15:48.362 com.mjxx.speech W/ResourceType: No package identifier when getting name for resource number 0x00000000
+2021-03-24 00:15:48.365 com.mjxx.speech W/ResourceType: No package identifier when getting name for resource number 0x00000000
+2021-03-24 00:15:48.373 com.mjxx.speech I/chromium: [INFO:library_loader_hooks.cc(36)] Chromium logging enabled: level = 0, default verbosity = 0
+2021-03-24 00:15:48.374 com.mjxx.speech I/cr_LibraryLoader: Expected native library version number "71.0.3578.99", actual native library version number "71.0.3578.99"
+2021-03-24 00:15:48.381 com.mjxx.speech W/cr_ChildProcLH: Create a new ChildConnectionAllocator with package name = com.google.android.webview, sandboxed = true
+2021-03-24 00:15:48.385 com.mjxx.speech I/cr_BrowserStartup: Initializing chromium process, singleProcess=false
+2021-03-24 00:15:48.405 com.mjxx.speech W/com.mjxx.speech: type=1400 audit(0.0:12349): avc: denied { read } for name="vmstat" dev="proc" ino=4026532109 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:object_r:proc:s0 tclass=file permissive=0
+2021-03-24 00:15:48.438 com.mjxx.speech W/cr_CrashFileManager: /data/user/0/com.mjxx.speech/cache/WebView/Crash Reports does not exist or is not a directory
+2021-03-24 00:15:48.481 com.mjxx.speech D/EgretLoader: EgretLoader(Context context)
+2021-03-24 00:15:48.483 com.mjxx.speech D/EgretLoader: The context is not activity
+2021-03-24 00:15:48.505 com.mjxx.speech I/SpeechFragment: onCreateView
+2021-03-24 00:15:48.507 com.mjxx.speech I/SpeechFragment: has Permission,init sdk!
+2021-03-24 00:15:48.517 com.mjxx.speech D/NetworkSecurityConfig: No Network Security Config specified, using platform default
+2021-03-24 00:15:48.549 com.mjxx.speech I/SpeechFragment: onActivityCreated
+2021-03-24 00:15:48.549 com.mjxx.speech I/SpeechFragment: onStart
+2021-03-24 00:15:48.553 com.mjxx.speech D/CrashReport: >>> com.mjxx.speechlibsnative.sdk.SpeechActivity onResumed <<<
+2021-03-24 00:15:48.568 com.mjxx.speech W/VideoCapabilities: Unrecognized profile 2130706433 for video/avc
+2021-03-24 00:15:48.568 com.mjxx.speech W/VideoCapabilities: Unrecognized profile 2130706434 for video/avc
+2021-03-24 00:15:48.570 com.mjxx.speech W/VideoCapabilities: Unrecognized profile 2130706433 for video/avc
+2021-03-24 00:15:48.570 com.mjxx.speech W/VideoCapabilities: Unrecognized profile 2130706434 for video/avc
+2021-03-24 00:15:48.575 com.mjxx.speech W/VideoCapabilities: Unsupported mime video/divx
+2021-03-24 00:15:48.577 com.mjxx.speech W/VideoCapabilities: Unsupported mime video/divx311
+2021-03-24 00:15:48.579 com.mjxx.speech W/VideoCapabilities: Unsupported mime video/divx4
+2021-03-24 00:15:48.591 com.mjxx.speech W/VideoCapabilities: Unrecognized profile/level 0/3 for video/mpeg2
+2021-03-24 00:15:48.593 com.mjxx.speech W/VideoCapabilities: Unrecognized profile/level 0/3 for video/mpeg2
+2021-03-24 00:15:48.598 com.mjxx.speech W/VideoCapabilities: Unsupported mime video/x-ms-wmv
+2021-03-24 00:15:48.600 com.mjxx.speech W/VideoCapabilities: Unsupported mime video/x-ms-wmv
+2021-03-24 00:15:48.612 com.mjxx.speech W/VideoCapabilities: Unrecognized profile 2130706433 for video/avc
+2021-03-24 00:15:48.612 com.mjxx.speech W/VideoCapabilities: Unrecognized profile 2130706434 for video/avc
+2021-03-24 00:15:48.625 com.mjxx.speech I/VideoCapabilities: Unsupported profile 4 for video/mp4v-es
+2021-03-24 00:15:48.628 com.mjxx.speech W/Utils: could not parse long range '175-174'
+2021-03-24 00:15:49.282 com.mjxx.speech D/hxpApi: url: http://47.106.235.8:10000/#/
+2021-03-24 00:15:49.442 com.mjxx.speech D/hxpApi: url: http://47.106.235.8:10000/#/
+2021-03-24 00:15:49.833 com.mjxx.speech D/hxpApi: url: http://47.106.235.8:10000/#/
+2021-03-24 00:15:50.183 com.mjxx.speech D/jsApi: [jsApi],File[SpeechFragment.java]Line[431]FUN[hxpApi],debug msg: js_api_id:10
+2021-03-24 00:15:50.193 com.mjxx.speech D/jsApi: [jsApi],File[SpeechFragment.java]Line[432]FUN[hxpApi],debug msg: parasJasonStr:{}
+2021-03-24 00:15:50.206 com.mjxx.speech D/jsApi: [jsApi],File[SpeechFragment.java]Line[433]FUN[hxpApi],debug msg: callBack:function(t){}
+2021-03-24 00:15:50.216 com.mjxx.speech I/MyRecognizer: [MyRecognizer],File[MyRecognizer.java]Line[108]FUN[stop],info msg: 停止录音
+2021-03-24 00:15:50.218 com.mjxx.speech D/BDSMessage--> java: {"asr_param_key_stop_time.string":"1616516150217","asr_param_key_realtime_data.string":"","asr_param_key_network_status.int":0}
+2021-03-24 00:15:50.233 com.mjxx.speech D/jsApi: [jsApi],File[SpeechFragment.java]Line[431]FUN[hxpApi],debug msg: js_api_id:10
+2021-03-24 00:15:50.248 com.mjxx.speech D/jsApi: [jsApi],File[SpeechFragment.java]Line[432]FUN[hxpApi],debug msg: parasJasonStr:{}
+2021-03-24 00:15:50.257 com.mjxx.speech D/jsApi: [jsApi],File[SpeechFragment.java]Line[433]FUN[hxpApi],debug msg: callBack:function(t){}
+2021-03-24 00:15:50.267 com.mjxx.speech I/MyRecognizer: [MyRecognizer],File[MyRecognizer.java]Line[108]FUN[stop],info msg: 停止录音
+2021-03-24 00:15:50.269 com.mjxx.speech D/BDSMessage--> java: {"asr_param_key_stop_time.string":"1616516150268","asr_param_key_realtime_data.string":"","asr_param_key_network_status.int":0}
+2021-03-24 00:15:50.286 com.mjxx.speech D/jsApi: [jsApi],File[SpeechFragment.java]Line[431]FUN[hxpApi],debug msg: js_api_id:11
+2021-03-24 00:15:50.302 com.mjxx.speech D/jsApi: [jsApi],File[SpeechFragment.java]Line[432]FUN[hxpApi],debug msg: parasJasonStr:{"ctx":"您好，这里是首都机场，请问有什么可以帮您的吗？","speed":5}
+2021-03-24 00:15:50.320 com.mjxx.speech D/jsApi: [jsApi],File[SpeechFragment.java]Line[433]FUN[hxpApi],debug msg: callBack:function(t){window.appInfo["_0"]["setIsVoiceDone"](!0)}
+2021-03-24 00:15:50.359 com.mjxx.speech D/TTSHelper: [TTSHelper],File[TTSHelper.java]Line[58]FUN[speak],debug msg: urlBuilder: http://47.106.235.8:8889/text2audio?tex=%E6%82%A8%E5%A5%BD%EF%BC%8C%E8%BF%99%E9%87%8C%E6%98%AF%E9%A6%96%E9%83%BD%E6%9C%BA%E5%9C%BA%EF%BC%8C%E8%AF%B7%E9%97%AE%E6%9C%89%E4%BB%80%E4%B9%88%E5%8F%AF%E4%BB%A5%E5%B8%AE%E6%82%A8%E7%9A%84%E5%90%97%EF%BC%9F&lan=zh&pdt=993&ctp=1&per=5117&cuid=20%3AA6%3A0C%3A5F%3A56%3AD6&spd=5&pit=5&vol=10&
+2021-03-24 00:15:50.365 com.mjxx.speech V/MediaHTTPService: MediaHTTPService(android.media.MediaHTTPService@2185910): Cookies: null
+2021-03-24 00:15:50.372 com.mjxx.speech V/MediaHTTPService: makeHTTPConnection: CookieManager created: java.net.CookieManager@1e0fc09
+2021-03-24 00:15:50.373 com.mjxx.speech V/MediaHTTPService: makeHTTPConnection(android.media.MediaHTTPService@2185910): cookieHandler: java.net.CookieManager@1e0fc09 Cookies: null
+2021-03-24 00:15:51.305 com.mjxx.speech I/zygote: Do full code cache collection, code=119KB, data=111KB
+2021-03-24 00:15:51.306 com.mjxx.speech W/Choreographer: OPTS_INPUT: First frame was drawed before optimized, so skip!
+2021-03-24 00:15:51.306 com.mjxx.speech I/zygote: After code cache collection, code=114KB, data=89KB
+2021-03-24 00:15:52.777 com.mjxx.speech W/Choreographer: OPTS_INPUT: First frame was drawed before optimized, so skip!
+2021-03-24 00:15:54.951 com.mjxx.speech V/MediaPlayer: resetDrmState:  mDrmInfo=null mDrmProvisioningThread=null mPrepareDrmInProgress=false mActiveDrmScheme=false
+2021-03-24 00:15:54.951 com.mjxx.speech V/MediaPlayer: cleanDrmObj: mDrmObj=null mDrmSessionId=null
+2021-03-24 00:15:54.953 com.mjxx.speech V/MediaPlayer: resetDrmState:  mDrmInfo=null mDrmProvisioningThread=null mPrepareDrmInProgress=false mActiveDrmScheme=false
+2021-03-24 00:15:54.953 com.mjxx.speech V/MediaPlayer: cleanDrmObj: mDrmObj=null mDrmSessionId=null
+2021-03-24 00:15:54.963 com.mjxx.speech D/hxpApi: [hxpApi],File[CustomerWebView.java]Line[410]FUN[doJSCallback],debug msg: callBackData:您好，这里是首都机场，请问有什么可以帮您的吗？
+2021-03-24 00:15:54.971 com.mjxx.speech D/hxpApi: [hxpApi],File[CustomerWebView.java]Line[413]FUN[doJSCallback],debug msg: callBackData:js  = (function(t){window.appInfo["_0"]["setIsVoiceDone"](!0)})('您好，这里是首都机场，请问有什么可以帮您的吗？')
+2021-03-24 00:15:54.982 com.mjxx.speech D/hxpApi: [hxpApi],File[CustomerWebView.java]Line[418]FUN[run],debug msg: evaluateJavascript:js  = (function(t){window.appInfo["_0"]["setIsVoiceDone"](!0)})('您好，这里是首都机场，请问有什么可以帮您的吗？')
+2021-03-24 00:15:55.055 com.mjxx.speech I/zygote: Do partial code cache collection, code=125KB, data=106KB
+2021-03-24 00:15:55.056 com.mjxx.speech I/zygote: After code cache collection, code=125KB, data=106KB
+2021-03-24 00:15:55.056 com.mjxx.speech I/zygote: Increasing code cache capacity to 512KB
+2021-03-24 00:15:55.168 com.mjxx.speech D/jsApi: [jsApi],File[SpeechFragment.java]Line[431]FUN[hxpApi],debug msg: js_api_id:5
+2021-03-24 00:15:55.180 com.mjxx.speech D/jsApi: [jsApi],File[SpeechFragment.java]Line[432]FUN[hxpApi],debug msg: parasJasonStr:{"receiveMode":"Final"}
+2021-03-24 00:15:55.191 com.mjxx.speech W/Choreographer: OPTS_INPUT: First frame was drawed before optimized, so skip!
+2021-03-24 00:15:55.192 com.mjxx.speech D/jsApi: [jsApi],File[SpeechFragment.java]Line[433]FUN[hxpApi],debug msg: callBack:function(t){if(t){t=JSON.parse(t);var a=t["voiceStr"];if(window.appInfo["_0"]["setErrorCode"](t.errorCode),a.length>0){var e=window.appInfo["_0"]["resetNumber"](a);e.length>0&&("undefined"!=typeof t.errorCode?0==t.errorCode&&window.appInfo["_2"]["existSensitiveWords"](e):window.appInfo["_2"]["existSensitiveWords"](e))}}}
+2021-03-24 00:15:55.206 com.mjxx.speech I/MyRecognizer.Debug: [MyRecognizer.Debug],File[MyRecognizer.java]Line[95]FUN[start],info msg: 识别参数（反馈请带上此行日志）{"accept-audio-data":true,"vad.endpoint-timeout":0,"outfile":"\/storage\/emulated\/0\/Music\/baidu_asr\/audio-2021-03-24 00.15.48.pcm","log_level":6,"pid":888,"key":"com.baidu.cloud","url":"http:\/\/47.106.235.8:8889\/v2","accept-audio-volume":false}
+2021-03-24 00:15:55.231 com.mjxx.speech D/Device: read deviceID:F5745530A4A736E99061039AC4B3E032|0
+2021-03-24 00:15:55.252 com.mjxx.speech I/cr_TurboNetLibraryLoader: TurboNet version: 2.14.2586.156, arch: armv8l
+2021-03-24 00:15:55.271 com.mjxx.speech W/System.err: java.io.FileNotFoundException: /data/user/0/com.mjxx.speech/files/log_switch.txt (No such file or directory)
+2021-03-24 00:15:55.271 com.mjxx.speech W/System.err:     at java.io.FileInputStream.open0(Native Method)
+2021-03-24 00:15:55.271 com.mjxx.speech W/System.err:     at java.io.FileInputStream.open(FileInputStream.java:200)
+2021-03-24 00:15:55.271 com.mjxx.speech W/System.err:     at java.io.FileInputStream.<init>(FileInputStream.java:150)
+2021-03-24 00:15:55.271 com.mjxx.speech W/System.err:     at java.io.FileReader.<init>(FileReader.java:72)
+2021-03-24 00:15:55.272 com.mjxx.speech W/System.err:     at com.baidu.speech.utils.upload.UploadSingleton.initUpParams(Unknown Source:14)
+2021-03-24 00:15:55.272 com.mjxx.speech W/System.err:     at com.baidu.speech.utils.upload.UploadSingleton.initParams(Unknown Source:15)
+2021-03-24 00:15:55.272 com.mjxx.speech W/System.err:     at com.baidu.speech.core.ASREngine.initConfig(Unknown Source:3259)
+2021-03-24 00:15:55.272 com.mjxx.speech W/System.err:     at com.baidu.speech.core.ASREngine.postEvent(Unknown Source:645)
+2021-03-24 00:15:55.272 com.mjxx.speech W/System.err:     at com.baidu.speech.asr.EventManagerAsr.send(Unknown Source:58)
+2021-03-24 00:15:55.272 com.mjxx.speech W/System.err:     at com.mjxx.speechlibsnative.baidu.asr.recog.MyRecognizer.start(MyRecognizer.java:96)
+2021-03-24 00:15:55.272 com.mjxx.speech W/System.err:     at com.mjxx.speechlibsnative.sdk.SpeechFragment$JavaScriptInterface.hxpApi(SpeechFragment.java:496)
+2021-03-24 00:15:55.273 com.mjxx.speech W/System.err:     at android.os.MessageQueue.nativePollOnce(Native Method)
+2021-03-24 00:15:55.273 com.mjxx.speech W/System.err:     at android.os.MessageQueue.next(MessageQueue.java:325)
+2021-03-24 00:15:55.273 com.mjxx.speech W/System.err:     at android.os.Looper.loop(Looper.java:148)
+2021-03-24 00:15:55.273 com.mjxx.speech W/System.err:     at android.os.HandlerThread.run(HandlerThread.java:65)
+2021-03-24 00:15:55.282 com.mjxx.speech D/BDSMessage--> java: {"asr_param_key_region_id.string":"","mic_param_key_socket_address.string":"7a157e84-b795-4431-b738-ece04471a242","dcs_data_len.int":20475,"asr_param_key_city_id.int":0,"asr_param_key_chunk_enable.bool":true,"mic_accept_audio_volume.bool":false,"asr_param_key_chunk_key.string":"com.baidu.cloud","asr_param_key_sample_rate.int":2,"asr_param_key_chunk_up_debug_status.int":0,"mutiply_vst.int":0,"mic_audio_mills.string":"","asr_param_key_network_status.int":4,"asr_param_key_enable_model_vad.int":1,"dcs_data.string":"","asr_param_key_vad_max_speech_size.int":0,"asr_param_key_server_url.string":"http:\/\/47.106.235.8:8889\/v2","uid.string":"F5745530A4A736E99061039AC4B3E032|0","asr_param_key_platform.string":"Android&MI+PAD+4&8.1.0&27&1","asr_param_key_vad_endpoint_timeout.int":0,"asr_param_key_chunk_param.string":"","asr_param_key_enable_turbonet.bool":true,"asr_param_key_enable_upload_ori_aud.bool":false,"asr_param_key_enable_mutiply_speech.bool":false,"asr_param_key_start_time.string":"1616516155273","asr_param_key_strategy.int":0,"asr_param_key_vad_res_type.int":0,"asr_param_key_check_result.int":0,"asr_param_key_app.string":"com.mjxx.speech","asr_param_key_wp_support_update.int":0,"asr_param_key_dci_status.int":1,"asr_param_key_enable_combined_tts.bool":false,"asr_param_key_vad_end_sil_size.int":0,"asr_param_key_enable_contacts.bool":false,"save_ori_aud.bool":false,"asr_param_key_enable_local_vad.bool":true,"asr_param_key_punctuation_ext_mode.int":0,"asr_param_key_vad_no_speech_size.int":0,"asr_param_key_enable_long_speech.bool":true,"asr_param_key_accept_audio_data.bool":true,"offline_param_key_app_code.string":"22612097","asr_param_key_enable_quic.bool":true,"asr_param_key_sdk_version.string":"4.2.2.240","wp_param_key_pcm_encode_enable.bool":true,"asr_param_key_chunk_up_log_status.int":0,"asr_param_key_glb.string":"429c13e3-31ff-41e5-af8b-586686625d7a","mic_audio_file_path.string":"","mic_audio_infile_type.int":0,"asr_param_key_enable_server_vad.bool":true,"asr_param_key_is_sink_rpc.bool":false,"asr_param_key_enable_nlu.bool":false,"asr_param_key_trigger.int":0,"asr_param_key_vad_detect_type.int":0,"asr_param_key_disable_punctuation.bool":false,"wakeup_status.int":-1,"asr_param_key_language.int":0,"common_param_key_debug_log_level.int":6,"asr_param_key_product_id.string":"888","asr_param_key_stc.string":"","asr_param_key_kws_protocol.int":0,"asr_param_key_wp_update_state.int":0,"asr_param_key_enable_early_return.bool":false,"asr_param_key_dev.string":"MI PAD 4","asr_param_key_audio_position.string":"0","wp_success_time.string":"-1","asr_param_key_protocol.int":1,"asr_param_key_compression_type.int":2,"asr_param_key_dci_wak_sn.string":"","asr_param_net_consuming.bool":true,"asr_param_key_chunk_dep_param.string":"","asr_param_key_enable_cloud_angle.bool":false,"asr_tiny_punctuation.int":1,"asr_param_key_ishesitate.int":1,"asr_param_key_voice_print_register.int":0}
+2021-03-24 00:15:55.288 com.mjxx.speech D/[CORE_LOG] bds_SDKLoaderAndroid.cpp:186: get instance...
+2021-03-24 00:15:55.288 com.mjxx.speech D/[CORE_LOG] bds_SDKLoaderAndroid.cpp:191: convert to native...
+2021-03-24 00:15:55.288 com.mjxx.speech D/[CORE_LOG] bds_EventManagerAsr.cpp:1076: InterfaceSync isUpWak: 0, upWakNet: 1, gatherType: 1, vadMode: 0, tts_audio: 0, vadEndMode: 1, noiseWake: 0, judgeStatus: -2
+2021-03-24 00:15:55.288 com.mjxx.speech D/[CORE_LOG] BDSMessageConversionUtility.cpp:546: NULL data from java message
+2021-03-24 00:15:55.288 com.mjxx.speech D/[CORE_LOG] AppThread.cpp:323: -------------------------------> static void* bds::Threads::AppThread::threadLauncher(void*)
+2021-03-24 00:15:55.288 com.mjxx.speech D/[CORE_LOG] AppThread.cpp:323: -------------------------------> static void* bds::Threads::AppThread::threadLauncher(void*)
+2021-03-24 00:15:55.288 com.mjxx.speech D/[CORE_LOG] AppRunloop.cpp:275: --- AppRunloop::threadMain
+2021-03-24 00:15:55.288 com.mjxx.speech D/[CORE_LOG] BDSAccessToken.cpp:257: Access token request: grant_type=client_credentials&client_id=com.baidu.cloud&client_secret=yk763mvz0LlpCMA6gYObIPHodkESmhxD
+2021-03-24 00:15:55.288 com.mjxx.speech D/[CORE_LOG] bds_HttpRequestMaker_Android_jni_httpClient.cpp:963: [ASRHttpTask::execute] url = https://openapi.baidu.com/oauth/2.0/token
+2021-03-24 00:15:55.288 com.mjxx.speech D/[CORE_LOG] bds_AndroidJavaEnvironment.cpp:134: [BDJNIUtils::getEnv] status=-2
+2021-03-24 00:15:55.289 com.mjxx.speech D/BDSMessage--> java: {"asr_param_key_app.string":"com.mjxx.speech","asr_param_key_platform.string":"Android&MI+PAD+4&8.1.0&27&1","asr_param_key_sdk_version.string":"4.2.2.240","asr_param_key_realtime_data.string":"","asr_param_key_network_status.int":4}
+2021-03-24 00:15:55.290 com.mjxx.speech D/[CORE_LOG] BDSMessageConversionUtility.cpp:564: BDSMessage--> c++ {"asr_param_key_app.string":"com.mjxx.speech","asr_param_key_platform.string":"Android&MI+PAD+4&8.1.0&27&1","asr_param_key_sdk_version.string":"4.2.2.240","asr_param_key_realtime_data.string":"","asr_param_key_network_status.int":4}
+2021-03-24 00:15:55.290 com.mjxx.speech D/[CORE_LOG] BDSMessageConversionUtility.cpp:108: CONVERT PARAM NAME: asr_param_key_app.string
+2021-03-24 00:15:55.290 com.mjxx.speech D/[CORE_LOG] BDSMessageConversionUtility.cpp:108: CONVERT PARAM NAME: asr_param_key_platform.string
+2021-03-24 00:15:55.290 com.mjxx.speech D/[CORE_LOG] BDSMessageConversionUtility.cpp:108: CONVERT PARAM NAME: asr_param_key_sdk_version.string
+2021-03-24 00:15:55.290 com.mjxx.speech D/[CORE_LOG] BDSMessageConversionUtility.cpp:108: CONVERT PARAM NAME: asr_param_key_realtime_data.string
+2021-03-24 00:15:55.290 com.mjxx.speech D/[CORE_LOG] BDSMessageConversionUtility.cpp:108: CONVERT PARAM NAME: asr_param_key_network_status.int
+2021-03-24 00:15:55.290 com.mjxx.speech D/[CORE_LOG] AppRunloop.cpp:64: --- AppRunloop::runTaskAsync1
+2021-03-24 00:15:55.290 com.mjxx.speech D/[CORE_LOG] AppRunloop.cpp:275: --- AppRunloop::threadMain
+2021-03-24 00:15:55.290 com.mjxx.speech D/[CORE_LOG] bds_EventManagerAsr.cpp:212: --[asr] asr.start
+2021-03-24 00:15:55.290 com.mjxx.speech D/[CORE_LOG] bds_EventManagerAsr.cpp:232: process_asr_event name: asr.start
+2021-03-24 00:15:55.290 com.mjxx.speech D/[CORE_LOG] bds_EventManagerAsr.cpp:1167: EventManagerAsr _audio_infile_type 0
+2021-03-24 00:15:55.291 com.mjxx.speech D/[CORE_LOG] bds_EventManagerAsr.cpp:1171: EventManagerAsr m_is_mutiply_speech 0
+2021-03-24 00:15:55.291 com.mjxx.speech D/[CORE_LOG] bds_EventManagerAsr.cpp:1175: m_wakeup_status: -1, m_asr_strategy=0
+2021-03-24 00:15:55.291 com.mjxx.speech D/[CORE_LOG] bds_EventManagerAsr.cpp:1178: _enable_cloud_angle: 0
+2021-03-24 00:15:55.291 com.mjxx.speech I/[CORE_LOG] bds_EventManagerAsr.cpp:1198: [ASR_START]_m_decoder_original_aud_type=-2
+2021-03-24 00:15:55.291 com.mjxx.speech I/[CORE_LOG] bds_EventManagerAsr.cpp:1209: [ASR_START]_m_enable_upload_ori_aud=0,_m_decoder_original_aud_type=-2,_wakeup_status=-1
+2021-03-24 00:15:55.291 com.mjxx.speech D/[CORE_LOG] bds_EventManagerAsr.cpp:3212: [EventManagerAsr::resolve_property_list]PROPERTY:10005
+2021-03-24 00:15:55.291 com.mjxx.speech D/[CORE_LOG] AppRunloop.cpp:64: --- AppRunloop::runTaskAsync1
+2021-03-24 00:15:55.291 com.mjxx.speech E/[CORE_LOG] bds_EventManagerVad.cpp:58: EventManagerVad::newEventManager
+2021-03-24 00:15:55.291 com.mjxx.speech D/[CORE_LOG] bds_EventManagerAsr.cpp:2211: _enable_vad
+2021-03-24 00:15:55.291 com.mjxx.speech D/[CORE_LOG] bds_EventManagerAsr.cpp:2219: _enable_vad far
+2021-03-24 00:15:55.302 com.mjxx.speech D/BDSHttpRequestMaker: Begin request, url is https://openapi.baidu.com/oauth/2.0/token
+2021-03-24 00:15:55.305 com.mjxx.speech D/[CORE_LOG] AppThread.cpp:323: -------------------------------> static void* bds::Threads::AppThread::threadLauncher(void*)
+2021-03-24 00:15:55.315 com.mjxx.speech E/libc: Access denied finding property "net.dns1"
+2021-03-24 00:15:55.315 com.mjxx.speech E/libc: Access denied finding property "net.dns2"
+2021-03-24 00:15:55.305 com.mjxx.speech W/WorkerPool/5021: type=1400 audit(0.0:12350): avc: denied { read } for name="u:object_r:net_dns_prop:s0" dev="tmpfs" ino=19959 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:object_r:net_dns_prop:s0 tclass=file permissive=0
+2021-03-24 00:15:55.316 com.mjxx.speech W/chromium: [0324/001555:WARNING:dns_config_service_posix.cc(316)] Failed to read DnsConfig.
+2021-03-24 00:15:55.328 com.mjxx.speech I/chromium: [0324/001555:INFO:native_engine.cc(129)] Set native url_request_context getter, engine_type: 0
+2021-03-24 00:15:55.328 com.mjxx.speech I/chromium: [0324/001555:INFO:native_engine.cc(61)] Initialize native url_request_context, engine_type: 0
+2021-03-24 00:15:55.387 com.mjxx.speech W/google-breakpad: ### ### ### ### ### ### ### ### ### ### ### ### ###
+2021-03-24 00:15:55.387 com.mjxx.speech W/google-breakpad: Chrome build fingerprint:
+2021-03-24 00:15:55.387 com.mjxx.speech W/google-breakpad: 71.0.3578.99
+2021-03-24 00:15:55.387 com.mjxx.speech W/google-breakpad: 357809950
+2021-03-24 00:15:55.387 com.mjxx.speech W/google-breakpad: ### ### ### ### ### ### ### ### ### ### ### ### ###
+2021-03-24 00:15:55.387 com.mjxx.speech A/libc: Fatal signal 11 (SIGSEGV), code 1, fault addr 0x8 in tid 4974 (runTaskSync), pid 4880 (com.mjxx.speech)

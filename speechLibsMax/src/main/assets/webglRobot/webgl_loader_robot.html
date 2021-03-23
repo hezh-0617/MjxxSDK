@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>FBX loader</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <script src="js/three.js"></script>
+    <script src="js/libs/inflate.min.js"></script>
+    <script src="js/loaders/FBXLoader.js"></script>
+    <script src="js/controls/OrbitControls.js"></script>
+    <script src="js/WebGL.js"></script>
+    <script src="js/libs/stats.min.js"></script>
+    <script src="js/threeTTs.js"></script>
+    <script src="js/libs/dat.gui.min.js"></script>
+    <!--<script src="../900.js"></script>-->
+    <style>
+    html {
+        background-color: transparent;
+    }
+    body {
+        margin: 0;
+        font-family: Monospace;
+        color: #fff;
+        background-color: transparent;
+        overflow: hidden;
+    }
+    #info {
+        position: absolute;
+        z-index: 100;
+        top: 10px;
+        display: block;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+    }
+    #info a {
+        font-weight: bold;
+        color: #046;
+    }
+    .loading {
+        position: absolute;
+        z-index: -1;
+        top: 50%;
+        left: 50%;
+        font-size: 20px;
+        color: #000;
+        transform: translate(-50%, -50%);
+    }
+    </style>
+</head>
+<body>
+    <div class="loading">
+    </div>
+    <!--<button class="btn">-->
+    <!--点我闭嘴-->
+    <!--</button>-->
+    <script>
+        var script = document.createElement('script') ;
+        script.src = 'js/useScript.js' ;
+        document.body.appendChild(script) ;
+    </script>
+</body>
+</html>

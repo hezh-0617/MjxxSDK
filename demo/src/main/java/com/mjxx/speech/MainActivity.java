@@ -94,7 +94,8 @@ public class MainActivity extends AppCompatActivity {
 
         String json = null;
         if (BuildConfig.DEBUG) {
-            json = AssetsUtils.assets(this, "config_debug.json");
+//            json = AssetsUtils.assets(this, "config_debug.json");
+            json = AssetsUtils.assets(this, "config_proxy.json");
         } else {
             json = AssetsUtils.assets(this, "config_release.json");
         }
