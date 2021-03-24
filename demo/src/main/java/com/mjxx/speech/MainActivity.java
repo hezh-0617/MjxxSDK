@@ -92,13 +92,13 @@ public class MainActivity extends AppCompatActivity {
         keys.add("AsrPid");
         keys.add("RemoteServer");
 
-        String json = null;
-        if (BuildConfig.DEBUG) {
-//            json = AssetsUtils.assets(this, "config_debug.json");
-            json = AssetsUtils.assets(this, "config_proxy.json");
-        } else {
-            json = AssetsUtils.assets(this, "config_release.json");
-        }
+        String json = AssetsUtils.assets(this, "config_airport.json");
+//        if (BuildConfig.DEBUG) {
+////            json = AssetsUtils.assets(this, "config_debug.json");
+//            json = AssetsUtils.assets(this, "config_proxy.json");
+//        } else {
+//            json = AssetsUtils.assets(this, "config_release.json");
+//        }
 
         JsonObject config = JsonParser.parseString(json).getAsJsonObject();
 

@@ -188,7 +188,8 @@ public final class SpeechFragment extends Fragment {
 
         asrSendParams.put(SpeechConstant.PID, config.getAsrPid());
         asrSendParams.put(SpeechConstant.ACCEPT_AUDIO_VOLUME, false);
-        asrSendParams.put(SpeechConstant.APP_KEY, "com.baidu.cloud");
+//        asrSendParams.put(SpeechConstant.APP_KEY, "com.baidu.cloud");
+        asrSendParams.put(SpeechConstant.APP_KEY, "com.baidu.asr.airport-robot");
 
         asrSendParams.put(SpeechConstant.ACCEPT_AUDIO_DATA, true);
         if (config.isAsrSaveRecord()) {
