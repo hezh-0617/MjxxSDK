@@ -2,6 +2,6 @@
   "AsrServerUrl": "http://47.106.235.8:8889/v2",
   "TtsServerUrl": "http://47.106.235.8:8889",
   "WebServerUrl": "http://47.106.235.8:10000",
-  "AsrPid": "830",
+  "AsrPid": "1108",
   "RemoteServer": ""
 }
