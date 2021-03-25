@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.JavascriptInterface;
 import android.webkit.URLUtil;
-import android.webkit.WebSettings;
+//import android.webkit.WebSettings;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -35,8 +35,8 @@ import com.mjxx.speechlibsnative.baidu.tts.TTSHelper;
 import com.mjxx.speechlibsnative.utils.DeviceUtil;
 import com.mjxx.speechlibsnative.utils.FileUtil;
 import com.mjxx.speechlibsnative.utils.LogUtil;
-import com.mjxx.speechlibsnative.webview.CustomerWebView;
-import com.mjxx.speechlibsnative.webview.WebViewCallback;
+//import com.mjxx.speechlibsnative.webview.CustomerWebView;
+//import com.mjxx.speechlibsnative.webview.WebViewCallback;
 //import com.mjxx.speechlibsnative.BuildConfig;
 //import com.mjxx.speechlibsnative.R;
 //import com.mjxx.speechlibsnative.baidu.asr.recog.MyRecognizer;
@@ -63,7 +63,7 @@ public final class SpeechFragment extends Fragment {
 
     private static final String TAG = SpeechFragment.class.getSimpleName();
 
-    private CustomerWebView webView;
+//    private CustomerWebView webView;
     private ProgressBar progressBar;
     private TextView tvLoading;
     private RelativeLayout rlNv;
@@ -105,7 +105,7 @@ public final class SpeechFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_speech, container, false);
-        webView = view.findViewById(R.id.webView);
+//        webView = view.findViewById(R.id.webView);
         progressBar = view.findViewById(R.id.progressBar);
         tvLoading = view.findViewById(R.id.tvLoading);
         rlNv = view.findViewById(R.id.rlNv);
@@ -177,12 +177,12 @@ public final class SpeechFragment extends Fragment {
 
             @Override
             public void onFinish(String speakWhat) {
-                webView.doJSCallback(webCallbackFun.get(String.valueOf(JavaScriptInterface.API_TEXT_TO_VOICE)), speakWhat);
+//                webView.doJSCallback(webCallbackFun.get(String.valueOf(JavaScriptInterface.API_TEXT_TO_VOICE)), speakWhat);
             }
 
             @Override
             public void onErr(String msg) {
-                webView.doJSCallback(webCallbackFun.get(String.valueOf(JavaScriptInterface.API_TEXT_TO_VOICE)), "error");
+//                webView.doJSCallback(webCallbackFun.get(String.valueOf(JavaScriptInterface.API_TEXT_TO_VOICE)), "error");
             }
         });
 
@@ -271,7 +271,7 @@ public final class SpeechFragment extends Fragment {
                 try {
                     jsonObject.put("errorCode", 1);
                     jsonObject.put("voiceStr", "");
-                    webView.doJSCallback(webCallbackFun.get(String.valueOf(JavaScriptInterface.API_INIT_VOICE_2_TEXT)), jsonObject.toString());
+//                    webView.doJSCallback(webCallbackFun.get(String.valueOf(JavaScriptInterface.API_INIT_VOICE_2_TEXT)), jsonObject.toString());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -327,7 +327,7 @@ public final class SpeechFragment extends Fragment {
     }
 
     private void setWebLog(String logMsg) {
-        webView.evaluateJavascript("window.appInfo['_0']['setLog'](\'" + logMsg + "<br/>\')", null);
+//        webView.evaluateJavascript("window.appInfo['_0']['setLog'](\'" + logMsg + "<br/>\')", null);
     }
 
     private void onAsrResult(String[] results) {
@@ -341,7 +341,7 @@ public final class SpeechFragment extends Fragment {
         try {
             jsonObject.put("errorCode", 0);
             jsonObject.put("voiceStr", stringBuilder.toString());
-            webView.doJSCallback(webCallbackFun.get(String.valueOf(JavaScriptInterface.API_INIT_VOICE_2_TEXT)), jsonObject.toString());
+//            webView.doJSCallback(webCallbackFun.get(String.valueOf(JavaScriptInterface.API_INIT_VOICE_2_TEXT)), jsonObject.toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -358,10 +358,10 @@ public final class SpeechFragment extends Fragment {
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            webView.getWebview().getSettings().setUserAgentString(WebSettings.getDefaultUserAgent(getContext()) + ";MJXX_SPEECH");
+//            webView.getWebview().getSettings().setUserAgentString(WebSettings.getDefaultUserAgent(getContext()) + ";MJXX_SPEECH");
         }
         final JavaScriptInterface mapClazz = new JavaScriptInterface();
-        webView.addJavascriptInterface(mapClazz, "jsBridge");
+//        webView.addJavascriptInterface(mapClazz, "jsBridge");
 
 
         // TODO: 2021/3/25 注释加载webview 
@@ -397,11 +397,12 @@ public final class SpeechFragment extends Fragment {
     }
 
     private void onBackPressed() {
-        if (webView.canGoBack()) {
-            webView.goBack();
-        } else {
-            onCloseCall();
-        }
+//        if (webView.canGoBack()) {
+//            webView.goBack();
+//        } else {
+//            onCloseCall();
+//        }
+        onCloseCall();
     }
 
     private void onCloseCall() {
@@ -449,9 +450,9 @@ public final class SpeechFragment extends Fragment {
                         result.put("ramSize", DeviceUtil.getRamSize(activity));
                         result.put("availableRamSize", DeviceUtil.getAvailableRamSize(activity));
                         result.put("cpuUsed", DeviceUtil.getAppCpuUseRate());
-                        webView.doJSCallback(callBack, result.toString());
+//                        webView.doJSCallback(callBack, result.toString());
                     } catch (Exception e) {
-                        webView.doJSCallback(callBack, "{}");
+//                        webView.doJSCallback(callBack, "{}");
                     }
                     break;
 
@@ -467,14 +468,14 @@ public final class SpeechFragment extends Fragment {
                             } else {
                                 speed = 0;
                             }
-                            webView.post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    if (ttsHelper != null) {
-                                        ttsHelper.speak(ctx, speed);
-                                    }
-                                }
-                            });
+//                            webView.post(new Runnable() {
+//                                @Override
+//                                public void run() {
+//                                    if (ttsHelper != null) {
+//                                        ttsHelper.speak(ctx, speed);
+//                                    }
+//                                }
+//                            });
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -516,31 +517,31 @@ public final class SpeechFragment extends Fragment {
 
                 case API_ON_BACK_PRESS:
                     Log.i(TAG, "API_ON_BACK_PRESS");
-                    webView.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            onBackPressed();
-                        }
-                    });
+//                    webView.post(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            onBackPressed();
+//                        }
+//                    });
                     break;
 
                 case API_ON_GET_SERVER_HOST:
-                    try {
-                        JSONObject result = new JSONObject();
-                        result.put("serverHost", config.getRemoteServerHost());
-                        webView.doJSCallback(callBack, result.toString());
-                    } catch (Exception e) {
-                        webView.doJSCallback(callBack, "err");
-                    }
+//                    try {
+//                        JSONObject result = new JSONObject();
+//                        result.put("serverHost", config.getRemoteServerHost());
+//                        webView.doJSCallback(callBack, result.toString());
+//                    } catch (Exception e) {
+//                        webView.doJSCallback(callBack, "err");
+//                    }
                     break;
                 case API_GET_SDK_VERSION:
-                    try {
-                        JSONObject jsonObject = new JSONObject();
-                        jsonObject.put("sdkVersion", BuildConfig.VERSION_NAME);
-                        webView.doJSCallback(callBack, jsonObject.toString());
-                    } catch (JSONException e) {
-                        webView.doJSCallback(callBack, "err");
-                    }
+//                    try {
+//                        JSONObject jsonObject = new JSONObject();
+//                        jsonObject.put("sdkVersion", BuildConfig.VERSION_NAME);
+//                        webView.doJSCallback(callBack, jsonObject.toString());
+//                    } catch (JSONException e) {
+//                        webView.doJSCallback(callBack, "err");
+//                    }
 
                     break;
             }
@@ -556,7 +557,7 @@ public final class SpeechFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         Log.i(TAG, "onDestroy");
-        webView.onDestroy();
+//        webView.onDestroy();
         if (recognizer != null) {
             recognizer.release();
             recognizer = null;
