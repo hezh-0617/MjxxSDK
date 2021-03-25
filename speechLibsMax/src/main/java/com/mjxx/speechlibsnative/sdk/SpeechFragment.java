@@ -322,6 +322,8 @@ public final class SpeechFragment extends Fragment {
             }
         };
         recognizer = new MyRecognizer(getContext(), recogListener);
+        // TODO: 2021/3/25 asr，调用后奔溃
+        recognizer.start(asrSendParams);
     }
 
     private void setWebLog(String logMsg) {
@@ -362,35 +364,36 @@ public final class SpeechFragment extends Fragment {
         webView.addJavascriptInterface(mapClazz, "jsBridge");
 
 
-        webView.setCurWebUrl(url).startCallback(new WebViewCallback() {
-            @Override
-            public void onStart() {
-                loadFail = false;
-            }
-
-            @Override
-            public void onProgress(int curProgress) {
-                progressBar.setProgress(curProgress);
-            }
-
-            @Override
-            public void onError(int errorCode, String description, String failingUrl) {
-                loadFail = true;
-                tvLoading.setText("内容加载失败");
-                webView.setVisibility(View.GONE);
-                rlNv.setVisibility(View.VISIBLE);
-            }
-
-            @Override
-            public void onPageFinished() {
-                progressBar.setVisibility(View.GONE);
-                if (!loadFail) {
-                    rlNv.setVisibility(View.GONE);
-                    webView.setVisibility(View.VISIBLE);
-                    tvLoading.setVisibility(View.GONE);
-                }
-            }
-        });
+        // TODO: 2021/3/25 注释加载webview 
+//        webView.setCurWebUrl(url).startCallback(new WebViewCallback() {
+//            @Override
+//            public void onStart() {
+//                loadFail = false;
+//            }
+//
+//            @Override
+//            public void onProgress(int curProgress) {
+//                progressBar.setProgress(curProgress);
+//            }
+//
+//            @Override
+//            public void onError(int errorCode, String description, String failingUrl) {
+//                loadFail = true;
+//                tvLoading.setText("内容加载失败");
+//                webView.setVisibility(View.GONE);
+//                rlNv.setVisibility(View.VISIBLE);
+//            }
+//
+//            @Override
+//            public void onPageFinished() {
+//                progressBar.setVisibility(View.GONE);
+//                if (!loadFail) {
+//                    rlNv.setVisibility(View.GONE);
+//                    webView.setVisibility(View.VISIBLE);
+//                    tvLoading.setVisibility(View.GONE);
+//                }
+//            }
+//        });
     }
 
     private void onBackPressed() {
